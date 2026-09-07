@@ -169,7 +169,7 @@ Remove this paragraph and start section numbering with 1. For any questions, ple
 
 \section{Introduction}
 
-The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \citep{ref-journal}.  Now citing a book reference \citep{ref-book1,ref-book2} or other reference types \citep{ref-unpublish,ref-url}. Please use the command \citep{ref-proceeding,ref-thesis} for the following MDPI journals, which use author--date citation: Administrative Sciences, AI in Education, Arts, Behavioral Sciences, Businesses, Econometrics, Economies, Education Sciences, European Journal of Investigation in Health, Psychology and Education, Family Sciences, Future Collections, Libraries, Archives, and Museums, Games, Genealogy, Histories, Humanities, Humans, International Journal of Cognitive Sciences, International Journal of Financial Studies, Investment, Journal of Intelligence, Journalism and Media, Journal of Risk and Financial Management, Journal of Strategic and Applied Marketing, Languages, Laws, Literature, Operations Management, Peace Studies, Project Management Horizons, Psychology International, Publications, Religions, Risks, Social Sciences, Tourism and Hospitality, Youth. 
+The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
@@ -188,6 +188,36 @@ This is an example of a quote.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
+
+\subsection{Glacier Area Changes during 2019--2025}
+\label{sec:glacier-area-2019-2025}
+
+The manually reviewed annual outlines derived from Sentinel-2 imagery show a decrease in Tosor Glacier area in every annual interval from 2019 to 2025 (Figure~\ref{fig:glacier-area-2019-2025}; Table~\ref{tab:glacier-area-2019-2025}). Glacier area decreased from 0.479155~km$^{2}$ in 2019 to 0.312797~km$^{2}$ in 2025, corresponding to a total area loss of 0.166358~km$^{2}$, or 34.719\% of the 2019 area. The largest annual loss occurred during 2019--2020, when glacier area decreased by 0.054215~km$^{2}$, equivalent to 11.315\% of the 2019 area.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{Figures/glacier_area_2019_2025.png}
+\caption{Annual area of Tosor Glacier from manually reviewed outlines derived from Sentinel-2 imagery for 2019--2025.\label{fig:glacier-area-2019-2025}}
+\end{figure}
+\unskip
+
+\begin{table}[H]
+\caption{Annual area of Tosor Glacier and percentage change relative to the preceding year, 2019--2025. Negative values indicate area loss; the dash denotes the baseline year.\label{tab:glacier-area-2019-2025}}
+\begin{tabularx}{\textwidth}{CCC}
+\toprule
+\textbf{Year} & \textbf{Glacier Area (km$^{2}$)} & \textbf{Annual Change (\%)}\\
+\midrule
+2019 & 0.479155 & ---\\
+2020 & 0.424940 & $-11.315$\\
+2021 & 0.395518 & $-6.924$\\
+2022 & 0.368743 & $-6.770$\\
+2023 & 0.353886 & $-4.029$\\
+2024 & 0.338145 & $-4.448$\\
+2025 & 0.312797 & $-7.496$\\
+\bottomrule
+\end{tabularx}
+\noindent{\small{Areas are reported to six decimal places and percentage changes to three decimal places. Percentage changes were calculated from the areas in square metres in the source data before rounding.}}
+\end{table}
 
 This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation, and the experimental conclusions that can be drawn.
 
@@ -486,36 +516,8 @@ All appendix sections must be cited in the main text. In the appendices, figures
 %=====================================
 % References, variant A: external bibliography
 %=====================================
-\bibliography{Tosor_Lake}
-
-%=====================================
-% References, variant B: internal bibliography
-%=====================================
-
-% ACS format
-% \begin{thebibliography}{999}
-% % Reference 1
-% \bibitem{ref-journal}
-% Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
-% % Reference 2
-% \bibitem{ref-book1}
-% Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
-% % Reference 3
-% \bibitem{ref-book2}
-% Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
-% % Reference 4
-% \bibitem{ref-unpublish}
-% Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
-% % Reference 5
-% \bibitem{ref-url}
-% Title of Site. Available online: URL (accessed on Day Month Year).
-% % Reference 6
-% \bibitem{ref-proceeding}
-% Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
-% % Reference 7
-% \bibitem{ref-thesis}
-% Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
-% \end{thebibliography}
+% Uncomment the bibliography command after adding real citations to the manuscript.
+% \bibliography{Tosor_Lake}
 
 % If authors have biography, please use the format below
 %\section*{Short Biography of Authors}
@@ -528,8 +530,6 @@ All appendix sections must be cited in the main text. In the appendices, figures
 %{\textbf{Firstname Lastname} Biography of second author}
 
 % For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
-% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
-% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% for journal Sci
