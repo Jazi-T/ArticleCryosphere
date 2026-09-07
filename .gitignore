@@ -1,0 +1,42 @@
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+
+# Large geospatial and raster files
+*.img
+*.vrt
+*.jp2
+*.nc
+*.hdf
+*.h5
+
+# Archives and large packaged files
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Compiled PDFs
+*.pdf
+
+# macOS system files
+.DS_Store
+
+# VS Code local settings
+.vscode/

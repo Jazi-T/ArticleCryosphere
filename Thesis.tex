@@ -1,0 +1,1658 @@
+\documentclass[12pt,a4paper]{report}
+
+% Page margins required by University of Tsukuba
+\usepackage[a4paper,
+top=25mm,
+bottom=30mm,
+left=30mm,
+right=20mm]{geometry}
+
+% Times font
+\usepackage{newtxtext,newtxmath}
+
+% Line spacing
+\usepackage{setspace}
+\setstretch{1.33}
+
+% Figures and tables
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage[export]{adjustbox}
+%\usepackage[authoryear]{natbib}
+% ------------------------------------------------
+% Headings, Contents, List of Figures and Tables
+% ------------------------------------------------
+\usepackage{titlesec}
+\usepackage{tocloft}
+
+% Chapter titles
+\titleformat{\chapter}[hang]
+  {\bfseries\fontsize{12}{14}\selectfont}
+  {\thechapter.}
+  {1em}
+  {}
+
+% Move chapter titles upward by about 1 cm
+\titlespacing*{\chapter}
+  {0pt}
+  {-0,5mm}
+  {12pt}
+
+% Contents title
+\renewcommand{\cfttoctitlefont}
+  {\bfseries\fontsize{12}{14}\selectfont}
+
+% List of Figures title
+\renewcommand{\cftloftitlefont}
+  {\bfseries\fontsize{12}{14}\selectfont}
+
+% List of Tables title
+\renewcommand{\cftlottitlefont}
+  {\bfseries\fontsize{12}{14}\selectfont}
+
+% Move Contents / List titles upward by about 1 cm
+\setlength{\cftbeforetoctitleskip}{-20pt}
+\setlength{\cftbeforeloftitleskip}{-20pt}
+\setlength{\cftbeforelottitleskip}{-20pt}
+
+% Space below titles
+\setlength{\cftaftertoctitleskip}{12pt}
+\setlength{\cftafterloftitleskip}{12pt}
+\setlength{\cftafterlottitleskip}{12pt}
+
+% Add “Fig.” before figure numbers
+\renewcommand{\cftfigpresnum}{Fig.\ }
+\setlength{\cftfignumwidth}{1.8cm}
+
+% Add “Table” before table numbers
+\renewcommand{\cfttabpresnum}{Table\ }
+\setlength{\cfttabnumwidth}{2.2cm}
+
+
+
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=nyt,
+    sortcites=true,
+    defernumbers=true,
+    maxbibnames=3,
+    minbibnames=3,
+    giveninits=true
+]{biblatex}
+
+\DeclareNameAlias{default}{family-given}
+\DeclareNameAlias{sortname}{family-given}
+
+\AtEveryBibitem{%
+  \ifentrytype{article}
+    {\renewbibmacro{in:}{}}
+    {}%
+}
+
+\addbibresource{Tosor_Lake.bib}
+
+\usepackage[hidelinks]{hyperref}
+
+% Page numbering at center bottom
+\usepackage{fancyhdr}
+%\usepackage[authoryear]{natbib}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\title{Monitoring and Forecasting of High-Mountain Lakes in the Territory of the Kyrgyz Republic}
+
+\author{TUTASHBAEVA Zhazgul}
+
+\date{June 2026}
+
+\begin{document}
+
+%\maketitle
+\begin{titlepage}
+\centering
+
+%\vspace*{3cm}
+
+% Title (17 pt)
+{\fontsize{15}{17}\selectfont\bfseries
+Monitoring and Forecasting of High-Mountain Lakes\\
+in the Territory of the Kyrgyz Republic
+\par}
+
+\vspace{7cm}
+
+% Name (15 pt)
+{\fontsize{15}{18}\selectfont
+TUTASHBAEVA Zhazgul
+\par}
+
+\vspace{0.5cm}
+
+% Student ID (10 pt)
+{\fontsize{10}{12}\selectfont
+202426052
+\par}
+
+\vspace{2cm}
+
+% Date (12 pt)
+{\fontsize{12}{12}\selectfont
+July 2026
+\par}
+
+\vfill
+
+% Thesis statement (12 pt)
+{\fontsize{12}{12}\selectfont
+A Master's Thesis Submitted to\\
+the Graduate School of Science and Technology,\\
+University of Tsukuba\\[0.5cm]
+
+in Partial Fulfillment of the Requirements\\
+for the Degree of Master of Environmental Sciences
+\par}
+
+\end{titlepage}
+
+\pagenumbering{roman}
+
+% Section (1.1)
+\titleformat{\section}
+{\bfseries\fontsize{12}{12}\selectfont}
+{\thesection}
+{1em}
+{}
+
+% Subsection (1.1.1)
+\titleformat{\subsection}
+{\bfseries\fontsize{12}{12}\selectfont}
+{\thesubsection}
+{1em}
+{} 
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+High-mountain glacier lakes in the Kyrgyz Republic are dynamic natural systems whose evolution is closely linked to climate change and glacier retreat. In addition to their important role in regional water resources and river runoff, these lakes represent potential natural hazards because they may generate Glacial Lake Outburst Floods (GLOFs), capable of triggering destructive floods and debris flows that threaten downstream communities, infrastructure, agricultural land, and natural ecosystems. Accelerated glacier retreat in the Tien Shan and Pamir-Alay mountain ranges has promoted the formation of new glacier lakes and the expansion of existing ones. Since approximately 94 percent of the territory of the Kyrgyz Republic is mountainous, this issue is of particular importance. According to the Ministry of Emergency Situations of the Kyrgyz Republic (MES KR) and the Central Asian Institute for Applied Geosciences (CAIAG), the country contains more than 8,000 glaciers and over 2,000 high-mountain lakes, of which 368 are classified as potentially hazardous. Therefore, continuous monitoring, investigation of lake evolution, and hazard assessment are essential for disaster risk reduction.
+
+The aim of this study is to develop an integrated approach for monitoring and assessing the dynamics of high-mountain glacier lakes in the Kyrgyz Republic, using Tosor Lake, located in the Teskey Ala-Too Range of the Northern Tien Shan, as a case study. The study provides a comprehensive assessment of the evolution of the glacier-lake system, including changes in the glacier, lake area, terrain, surface deformation, and climatic conditions, as well as the projection of future glacier evolution.
+
+To achieve these objectives, an integrated dataset consisting of remote sensing observations, field measurements, meteorological data, and numerical modelling was employed. Long-term glacier and lake dynamics were reconstructed using historical KH-9 Hexagon satellite imagery acquired in 1973, while recent environmental changes were analysed using Landsat-7 and Sentinel-2 imagery, Unmanned Aerial Vehicle (UAV) surveys, Digital Elevation Models (DEMs), Differential Interferometric Synthetic Aperture Radar (DInSAR), and meteorological observations. Comparisons of historical and recent DEMs were performed to quantify terrain changes associated with glacier degradation and moraine evolution. The influence of climatic conditions was evaluated using air temperature, precipitation, snowfall, and Positive Degree Days (PDD). Future glacier evolution was simulated using the Open Global Glacier Model (OGGM).
+
+The results demonstrate substantial changes in the Tosor glacier-lake system over the past five decades. Historical image analysis indicates that the glacier terminus retreated by approximately 390 m between 1973 and 2025. Annual Sentinel-2 observations further show that the lake area increased from 21,205 m² in 2019 to a maximum of 30,526 m² in 2024 before decreasing to 27,225 m² in 2025. Despite these interannual fluctuations, the overall trend indicates continued lake development associated with glacier retreat and variations in meltwater supply.
+
+Meteorological analysis revealed considerable interannual variability in air temperature, precipitation, snowfall, and Positive Degree Days. Comparison with annual lake area changes suggests that climatic conditions influenced glacier melt and meltwater availability; however, the relationship was not strictly linear because lake evolution was also controlled by glacier geometry, drainage conditions, and basin morphology. DInSAR analysis detected localized surface deformation within the moraine complex and adjacent slopes, suggesting possible ongoing geomorphological activity. Comparisons of historical and recent DEMs further revealed significant terrain changes associated with glacier degradation, moraine evolution, and sediment redistribution.
+
+OGGM simulations under SSP245 and SSP585 climate scenarios indicate continued glacier area reduction during the coming decades, which may result in further changes in meltwater availability and lake evolution. Although no evidence of an imminent glacial lake outburst was identified during the study period, the observed glacier retreat, lake expansion, terrain evolution, and localized moraine deformation demonstrate that the Tosor glacier-lake system remains highly dynamic and requires continued monitoring.
+
+The results confirm that the integrated use of remote sensing, GIS analysis, UAV surveys, DInSAR, Digital Elevation Models, meteorological observations, and numerical modelling provides an effective framework for investigating and monitoring high-mountain glacier lakes. The proposed approach can support the monitoring of potentially hazardous glacier lakes in the Kyrgyz Republic, improve natural hazard assessment, and contribute to the development of effective disaster risk reduction strategies.
+
+
+
+\vspace{\baselineskip}
+
+\textbf{Keywords:} Glacial Lake Outburst Flood, Climate Change, Remote Sensing, Kyrgyz Republic.
+
+\clearpage
+
+\tableofcontents
+\clearpage
+\listoftables
+\clearpage
+\listoffigures
+
+
+\clearpage
+
+\pagenumbering{arabic}
+
+%\input{Chapter/Introduction.tex}
+%\input{Chapter/Glacier_Lakes_of_Kyrgyz Republic.tex}
+%\input{Chapter/Study_Area.tex}
+%\input{Chapter/Methodology.tex}
+%\input{Chapter/Results_and_Discussion.tex}
+%\input{Chapter/Conclusions.tex}
+
+\newpage
+
+\chapter{Introduction}
+\section{Background}
+Mountain regions are among the most sensitive environments to climate change and often experience environmental changes earlier and more rapidly than lowland regions. In recent decades, accelerated glacier retreat has become one of the most visible indicators of global warming, particularly within high-altitude regions of Central Asia \cite{Shugar2021}. Rising temperatures and changing precipitation patterns have altered mountain hydrological systems and contributed to environmental changes throughout many mountainous regions of the world \cite{Bolch2012}.
+
+The Kyrgyz Republic is especially vulnerable to these environmental changes because approximately 94 percent of its territory is mountainous and located within the Tien Shan and Pamir-Alay mountain systems \cite{Zaginaev2024}. These mountain systems contain numerous glaciers that serve as important freshwater reserves for the Kyrgyz Republic and downstream regions of Central Asia. Glacier meltwater contributes significantly to river runoff, agriculture, hydropower production, and ecosystem sustainability throughout the region \cite{Sorg2012}. The geographic location of the Kyrgyz Republic within Central Asia and the Eurasian continent is shown in Figure 1.1. 
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.65\textwidth]{Kyrgyzstan.png}
+\caption{Geographic location of the Kyrgyz Republic within Central Asia and the Eurasian continent. Source: Adapted from Wikimedia Commons.}
+\label{fig:Kyrgyz Republic}
+
+\end{figure}
+
+Mountain environments in the Kyrgyz Republic are characterized by complex topography, active geological processes, and diverse climatic conditions, making them particularly susceptible to natural hazards. Earthquakes, landslides, rockfalls, debris flows, avalanches, floods, and slope failures frequently occur throughout mountainous regions, while climate change and increasing anthropogenic pressures continue to intensify many existing hazardous processes \cite{MESKR2024}. 
+
+One of the most significant consequences of glacier retreat is the formation and expansion of high-mountain lakes. As glaciers shrink and retreat, depressions previously occupied by ice gradually become filled with meltwater and precipitation, resulting in the formation of new lakes and expansion of existing water bodies \cite{shugar2020}. Recent studies have shown a rapid increase in both the number and area of glacial lakes worldwide, highlighting the growing influence of climate change on mountain environments \cite{Zhang2023}. 
+
+Although high-mountain lakes contribute to seasonal water storage and regional hydrological systems, they may also represent significant natural hazards. Many of these lakes are dammed by unstable moraine complexes composed of unconsolidated sediments and buried ice. Under certain conditions, including rapid snow and ice melt, extreme precipitation, seismic activity, glacier avalanches, or slope instability, these natural dams may fail and generate Glacial Lake Outburst Floods (GLOFs) \cite{Richardson2000, Emmer2013}. 
+
+GLOFs are characterized by the sudden release of large volumes of water that may be accompanied by debris flows and substantial sediment transport. Such events can severely affect infrastructure, agricultural land, transportation networks, and settlements located downstream. Because population centers and critical infrastructure in mountainous countries are often concentrated within river valleys, the socio-economic consequences of such events may be considerable \cite{Richardson2000}. 
+
+Several studies conducted in the Tien Shan region have demonstrated that glacier-fed lakes may rapidly develop and evolve under changing climatic conditions. The formation and outburst of Toguz-Bulak Lake in the Teskey Ala-Too Range highlighted the dynamic nature of high-mountain lakes and emphasized the importance of continuous monitoring in mountainous regions of the Kyrgyz Republic \cite{Daiyrov2020}. 
+
+At the same time, many potentially dangerous high-mountain lakes remain located in remote and difficult-to-access regions where continuous field monitoring is expensive, time-consuming, and logistically challenging \cite{Gu2023}. As the number and size of high-mountain lakes continue to increase, improving methods for their monitoring and forecasting becomes increasingly important for disaster risk reduction, water resource management, and sustainable mountain development. 
+
+Remote sensing and geospatial technologies provide opportunities to monitor inaccessible mountain environments, evaluate lake development, detect environmental changes, and support hazard assessment over large spatial scales \cite{Huggel2002}. Therefore, understanding the development, behavior, and potential hazards of high-mountain lakes has become an important scientific and practical challenge for the Kyrgyz Republic.
+
+\section{Glacier Lakes in the Kyrgyz Republic}
+
+\subsection{General Information about Glaciers in the Kyrgyz Republic}
+
+The Kyrgyz Republic contains one of the largest concentrations of glaciers in Central Asia and is considered an important center of modern glaciation within the Tien Shan mountain system. Glaciers are distributed throughout the country’s high mountain regions, primarily within the Tien Shan and Pamir-Alay ranges, where climatic and topographic conditions support their formation and long-term existence \cite{MESKR2024}.
+
+Glaciers represent an essential component of the cryosphere and play a significant role in regional hydrological processes. They function as natural freshwater reservoirs, storing precipitation in the form of ice and gradually releasing meltwater during warm seasons. As a result, glacier melt contributes substantially to river discharge and supports water resources for agriculture, hydropower production, ecosystems, and local communities throughout Central Asia \cite{Sorg2012}. 
+
+According to the latest glacier inventory, the territory of the Kyrgyz Republic contains 9,957 glaciers with a total area of approximately 6,804.8 km$^2$, covering nearly 4 percent of the country’s territory. Of these, 6,229 glaciers have an area greater than 0.1 km$^2$, while 3,728 glaciers are smaller than 0.1 km$^2$ \cite{CAIAG2024}. Although many glaciers are relatively small, they collectively represent a significant freshwater resource and contribute to the hydrological regime of major river basins across the region. 
+
+The largest glacierized areas are concentrated in the Central and Eastern Tien Shan, where extensive valley glaciers and glacier complexes are developed under favorable climatic and geomorphological conditions \cite{chen2016,bolch2007}. In contrast, smaller cirque, niche, and slope glaciers are more common in other mountainous regions of the country \cite{bolch2007}. The spatial distribution and characteristics of glaciers vary considerably depending on elevation, topography, and local climatic conditions \cite{barry2006}. 
+
+During recent decades, glaciers throughout Kyrgyz Republic have experienced significant changes associated with climate warming. Numerous studies have reported reductions in glacier area, volume, and length, reflecting the ongoing response of mountain glaciers to increasing air temperatures and changing precipitation patterns \cite{Aizen2006, Sorg2012}. Continued glacier retreat not only affects regional water resources but also contributes to the formation and expansion of high-mountain lakes, which may increase the potential for glacier-related hazards. 
+
+Understanding the characteristics and current state of glaciers is therefore essential for assessing environmental changes, water resource availability, and the development of potentially hazardous high-mountain lakes in the Kyrgyz Republic.
+
+\subsection{Distribution and Mapping of Glaciers in the Kyrgyz Republic}
+
+The spatial distribution of glaciers in the Kyrgyz Republic is closely associated with the country’s mountainous topography and climatic conditions. Most glaciers are concentrated within the Tien Shan mountain system, particularly in the Central and Eastern Tien Shan, where high elevations and favorable climatic conditions support glacier formation and preservation. Additional glacierized areas are found within the Pamir-Alay Mountains in the southwestern part of the country \cite{Atlas2025}. 
+
+The distribution of glaciers is controlled by several environmental factors, including elevation, air temperature, precipitation, slope orientation, and local topographic conditions. In general, glacierized areas occur at elevations where annual snow accumulation exceeds seasonal melting, allowing glaciers to persist over long periods. Consequently, the largest glacier complexes are concentrated within high-altitude mountain regions characterized by extensive accumulation zones and favorable conditions for glacier development. 
+
+Accurate information on glacier distribution is essential for understanding regional hydrology, evaluating the impacts of climate change, and assessing glacier-related hazards. Historically, glacier mapping in the Kyrgyz Republic relied on field surveys, aerial photography, and topographic maps. Although these approaches provided valuable information, mapping large and remote mountain regions remained challenging due to difficult terrain and limited accessibility. 
+
+The development of remote sensing technologies has significantly improved glacier inventory production and glacier monitoring capabilities. Modern glacier mapping commonly utilizes optical satellite imagery, digital elevation models (DEMs), and Geographic Information Systems (GIS) to identify glacier boundaries and analyze glacier distribution patterns. Satellite missions such as Landsat and Sentinel have enabled regular monitoring of glacier changes over large and inaccessible mountain regions \cite{Bolch2010, Paul2013}. 
+
+Several international glacier databases have contributed to glacier mapping efforts in the Kyrgyz Republic, including the Global Land Ice Measurements from Space (GLIMS) database and the Randolph Glacier Inventory (RGI). These datasets provide standardized glacier outlines and support regional and global assessments of glacier distribution and glacier change. The spatial distribution of glaciers within the territory of the Kyrgyz Republic based on the GLIMS glacier inventory is presented in Figure 1.2. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{KGZ_Glaciers.jpeg}
+\caption{Spatial distribution of glaciers in the Kyrgyz Republic based on the GLIMS glacier inventory.}
+\small Source: Author's map created in QGIS using glacier outlines from the GLIMS Glacier Database and Google Satellite imagery.
+\label{fig:kgz_glaciers}
+
+
+\end{figure}
+
+Figure 1.2 illustrates the spatial distribution of glaciers within the territory of the Kyrgyz Republic. Glacier outlines were obtained from the GLIMS glacier inventory and visualized using GIS techniques. The map demonstrates that glacierized regions are primarily concentrated within the Tien Shan and Pamir-Alay mountain systems, with the highest glacier densities occurring in the Central and Eastern Tien Shan. The observed distribution reflects the strong influence of elevation and climatic conditions on glacier development and preservation. 
+
+Understanding glacier distribution is particularly important because many high-mountain lakes develop within or adjacent to glacierized regions. As glaciers continue to retreat under changing climatic conditions, new lakes may form and existing lakes may expand. Therefore, glacier mapping provides an important basis for investigating the formation, evolution, and potential hazards of high-mountain lakes in the Kyrgyz Republic.
+
+\subsection{Formation of High-Mountain Lakes}
+
+The formation of high-mountain lakes is closely associated with glacier dynamics and environmental changes occurring within mountainous regions. Climate warming has accelerated glacier retreat in many mountain systems worldwide, resulting in significant changes in glacier geometry, hydrology, and landscape morphology \cite{Aizen2006, Bolch2012}. As glaciers retreat, previously ice-covered depressions become exposed and gradually accumulate meltwater, precipitation, and seasonal runoff, leading to the formation of new lakes and the expansion of existing ones.
+
+The development of high-mountain lakes is controlled by a combination of glaciological, geomorphological, and hydrological factors. Glacier retreat creates favorable conditions for lake formation by exposing depressions and modifying drainage systems. At the same time, sediment redistribution and moraine deposition contribute to the development of natural barriers capable of impounding water \cite{Cook2015, Carrivick2013}. Consequently, lake formation is strongly influenced by interactions between glacier retreat, topography, sediment dynamics, and water accumulation processes. 
+
+Different types of high-mountain lakes may develop depending on local geomorphological conditions \cite{Mergili2011}. Some lakes form within depressions left by retreating glaciers, while others develop behind moraine ridges, glacier ice barriers, or other natural obstructions to drainage. Small lakes frequently appear near glacier margins and within newly exposed terrain following glacier retreat \cite{Worni2013}. 
+
+As glacier retreat continues, meltwater production generally increases, resulting in larger volumes of water entering newly formed depressions. Water accumulation occurs through glacier melt, snowmelt, precipitation, and runoff from surrounding catchments \cite{Carrivick2013}. Under favorable conditions, lakes may continue to expand over time and experience considerable seasonal and interannual fluctuations in area and volume \cite{Veh2020}. 
+
+Lake development remains highly dynamic because high-mountain environments are continuously influenced by climatic and hydrological processes. Snow accumulation, glacier drainage systems, subsurface flow, precipitation, and seasonal melting may affect lake behavior throughout the year. Consequently, high-mountain lakes represent dynamic systems that continuously respond to environmental change \cite{Worni2013, Zaginaev2019}. 
+
+Recent studies have demonstrated a significant increase in both the number and total area of glacial lakes worldwide during recent decades \cite{Shugar2021}. Similar trends have been observed in many glacierized regions of Central Asia, where glacier retreat continues to promote the formation and expansion of high-mountain lakes. These changes have increased scientific interest in understanding lake evolution and assessing their potential environmental impacts. 
+
+Understanding the formation processes of high-mountain lakes is important because lake origin, morphology, and evolution directly influence hydrological processes, environmental change, and future hazard potential. The characteristics acquired during lake formation often determine subsequent lake stability and play an important role in the development of glacier-related hazards.
+
+\subsection{Glacial Lake Outburst Floods (GLOFs)}  
+
+Glacial Lake Outburst Floods (GLOFs) represent one of the most significant glacier-related hazards in mountainous regions \cite{Clague2000}. A GLOF is generally defined as the sudden release of water from a glacial lake caused by the failure of a natural dam or by processes that disrupt lake stability \cite{Clague2000}. Depending on the characteristics of the lake and the failure mechanism, GLOFs can generate peak discharges of up to 30,000 m³ s$^{-1}$ and may travel for more than 200 km downstream \cite{Richardson2000}. Such events may occur rapidly and release large volumes of water within a short period of time, producing destructive downstream impacts. 
+
+The occurrence of GLOFs is closely related to the formation and expansion of high-mountain lakes. As glaciers retreat and lake volumes increase, the probability of lake instability may also increase. Lakes dammed by unconsolidated moraine material, buried ice, glacier ice, or other unstable natural barriers are particularly vulnerable to failure. 
+
+Potentially hazardous high-mountain lakes are widely distributed throughout the territory of the Kyrgyz Republic. According to the Ministry of Emergency Situations of the Kyrgyz Republic, many lakes are located within glacierized regions where ongoing glacier retreat continues to modify environmental conditions and influence hazard development \cite{MESKR2024}. 
+
+The spatial distribution of potentially hazardous high-mountain lakes in the Kyrgyz Republic is presented in Figure 1.3. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{KR_lakes.png}
+\caption{Spatial Distribution of Potentially Hazardous High-Mountain Lakes in the Kyrgyz Republic. 
+Source: Adapted from MES KR (2025)}
+\label{fig:KR_lakes}
+
+%\vspace{0.2cm}
+%\small Source: Adapted from Mool et al. (2001). 
+\end{figure}
+
+Figure 1.3 illustrates the distribution of potentially hazardous high-mountain lakes throughout the territory of the Kyrgyz Republic. Most lakes are concentrated within glacierized regions of the Tien Shan and Pamir-Alay mountain systems, reflecting the close relationship between glacier retreat and lake formation. The widespread distribution of these lakes highlights the importance of continuous monitoring and hazard assessment in mountainous regions \cite{MESKR2024}. 
+
+Several mechanisms may trigger a glacial lake outburst flood. Common triggers include intense precipitation, rapid snow and ice melt, glacier avalanches, rockfalls, landslides, seismic activity, and progressive weakening of natural dam structures \cite{Carrivick2013, Carrivick2017}. In many cases, multiple triggering factors may act simultaneously, increasing the probability of dam failure and subsequent flooding. 
+
+GLOFs are often accompanied by debris transport, channel erosion, sediment redistribution, and secondary slope failures. Consequently, the impacts of outburst floods may extend far beyond the immediate lake environment. Infrastructure, transportation routes, agricultural land, hydropower facilities, and settlements located downstream may experience significant damage. Because many communities in mountainous regions are concentrated along river valleys, even relatively small outburst events may produce considerable socio-economic consequences. 
+
+Several glacier lake outburst events have been documented within the Tien Shan region, demonstrating the potential hazard posed by rapidly evolving glacier lakes. The formation and outburst of Toguz-Bulak Lake in the Northern Tien Shan, Teskey Ala-Too Range \cite{Daiyrov2020} provides an important example of how glacier retreat may contribute to the development of hazardous lake conditions. 
+
+Understanding GLOF processes is essential for hazard assessment, disaster risk reduction, and the development of effective monitoring strategies. As climate change continues to influence glacier dynamics and lake development, improving the monitoring and forecasting of potentially hazardous high-mountain lakes has become increasingly important for mountainous countries such as Kyrgyz Republic. 
+
+\subsection{Types of High-Mountain Glacial Lakes}
+
+High-mountain glacial lakes exhibit considerable diversity in their formation mechanisms, geomorphological characteristics, hydrological behavior, and hazard potential. Their origin strongly influences lake stability, water storage, hydrological evolution, and susceptibility to glacial lake outburst floods (GLOFs). Consequently, the classification of glacial lakes provides an important basis for understanding glacier-related processes, evaluating hazard potential, and developing appropriate monitoring strategies. Various classification systems have been proposed based on lake genesis, dam composition, and the relationship between glaciers and lakes. One of the most comprehensive classification systems was proposed by Yao et al. (2018), who classified glacial lakes into six principal categories: glacial erosion lakes, moraine-dammed lakes, ice-dammed lakes, supraglacial lakes, subglacial lakes, and other glacial lakes.
+
+Glacial erosion lakes occupy depressions created by glacier erosion and abrasion during former glaciations. They are generally older than recently formed glacier lakes and often exhibit relatively stable hydrological conditions because many are no longer directly connected to active glaciers \cite{Yao2018}. According to Yao et al. (2018), this class includes three subclasses: cirque lakes, glacial valley lakes, and other glacial erosion lakes. Cirque lakes develop within bowl-shaped cirques near glacier accumulation zones and are usually small in size, receiving water mainly from snowmelt, glacier meltwater, and precipitation. Glacial valley lakes occupy U-shaped valleys carved by glacier movement and are generally larger than cirque lakes. Other glacial erosion lakes include water bodies formed within glacially eroded depressions that cannot be clearly assigned to either cirque or glacial valley lake categories because of their complex geomorphological setting.
+
+Moraine-dammed lakes develop where glacier meltwater accumulates behind terminal or lateral moraine ridges deposited during glacier retreat. Because moraine dams are commonly composed of unconsolidated sediments and frequently contain buried glacier ice, these lakes are regarded as one of the most hazardous types of high-mountain glacial lakes \cite{Richardson2000}. Yao et al. (2018) further divided moraine-dammed lakes into three subclasses: end moraine-dammed lakes, which develop between the glacier terminus and the terminal moraine ridge; lateral moraine-dammed lakes, which form alongside lateral moraine ridges where meltwater becomes impounded between the glacier margin and the valley wall; and moraine thaw lakes, which develop within depressions created by the melting of buried glacier ice inside moraine complexes.
+
+Moraine-dammed lakes are particularly widespread throughout the Tien Shan, where accelerated glacier retreat has promoted the formation and expansion of numerous glacier-fed lakes during recent decades \cite{Zaginaev2016}. Tosor Lake, the focus of this study, belongs to this category. It is a glacier-fed moraine-dammed lake associated with an ice-cored moraine complex and remains in direct contact with the retreating glacier terminus, where active calving processes are observed. These characteristics make Tosor Lake representative of rapidly evolving moraine-dammed lakes that require continuous monitoring because of their potential instability and possible downstream impacts.
+
+Ice-dammed lakes form when glacier ice blocks natural drainage pathways and impounds meltwater \cite{Yao2018}. Because the dam consists entirely of glacier ice, these lakes exhibit highly dynamic behavior and may change rapidly in response to glacier movement, seasonal melting, or the development of englacial and subglacial drainage channels. Yao et al. (2018) distinguished two subclasses: advancing glacier-blocked lakes, which form when an advancing glacier obstructs a river valley, and other glacier-blocked lakes, where glacier ice itself acts as the natural dam. Failure of an ice dam may result in sudden drainage and destructive downstream flooding \cite{Richardson2000}.
+
+Subglacial lakes occur beneath glacier ice where meltwater accumulates between the glacier bed and the overlying ice. They are primarily associated with large continental ice sheets such as Antarctica and Greenland and are rarely observed beneath alpine glaciers. Because these lakes are concealed beneath ice, they cannot be identified using conventional optical satellite imagery and generally require geophysical techniques, including ground-penetrating radar, for detection. Consequently, subglacial lakes are rarely included in inventories of alpine glacier lakes \cite{livingstone2022}.
+
+Other glacial lakes include lakes formed when landslides, rockfalls, avalanches, or debris flows dam river valleys within glacierized mountain regions \cite{Richardson2000,Carrivick2013}. Their stability depends largely on the composition and internal structure of the natural dam, and they may either persist for many years or fail shortly after formation \cite{Carrivick2013}. Although less common than moraine-dammed lakes, they may also generate destructive outburst floods and therefore require careful monitoring in mountainous environments \cite{Richardson2000,Carrivick2017}.
+
+During the 2025 field expedition, several representative glacier-fed lakes in the central and northern Tien Shan were visited to document their geomorphological characteristics and present conditions (Figure 1.4). It should be noted that the field visit to Ak-Sai Lake (Figure 1.4c) could not be completed because of rapidly changing weather conditions in the high-mountain environment. Consequently, the lake itself, which is located behind the central rock ridge, is not visible in the photograph, and only the Ak-Sai Glacier is shown.
+
+\begin{figure}[H]
+\centering
+
+% ---------- First row ----------
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Tosor.png}
+    \caption{Glacier-fed moraine-dammed lake (Tosor Lake)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{AkSay.png}
+    \caption{End moraine-dammed lake (Ak-Sai Lake) Adapted: DMFES under the MES KR}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+% ---------- Second row ----------
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{AkSay1.png}
+    \caption{Ak-Sai Glacier; the lake Ak-Sai is located behind the central rock ridge}
+\end{subfigure}
+
+
+% ---------- Third row ----------
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{AkSuu.png}
+    \caption{Glacier terminus and proglacial lake (Ak-Suu Lake)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{KolTor.png}
+    \caption{Moraine-dammed proglacial lake (Kol-Tor Lake)}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+\caption{Representative glacier-fed high-mountain lakes visited during the 2025 field expedition in the Tien Shan.}
+\label{fig:Field_lakes}
+
+\end{figure}
+
+Among the lakes visited during the field survey, Tosor Lake was selected as the case study for this thesis because it represents a typical glacier-fed moraine-dammed lake undergoing rapid environmental change. Although similar lakes are widespread throughout the Tien Shan, published scientific studies specifically focusing on Tosor Lake remain limited. Its continued expansion, direct interaction with the retreating glacier, active calving processes, and evolving ice-cored moraine complex make it an appropriate site for investigating glacier-lake evolution and evaluating potential glacier-related hazards.
+
+
+\subsection{Monitoring Approaches for High-Mountain Lakes and Existing Challenges}
+
+Continuous monitoring of high-mountain lakes has become increasingly important because many glacier lakes continue to expand under changing climatic conditions \cite{Carrivick2016, Harrison2018}. Monitoring allows researchers to evaluate lake development, identify potentially hazardous conditions, and improve understanding of environmental changes occurring within glacierized regions. Continuous observations are particularly important because lake conditions may change rapidly as glacier retreat and environmental changes continue. 
+
+Traditional monitoring approaches primarily rely on field investigations, ground observations, bathymetric measurements, GPS surveys, and direct environmental observations. These methods provide valuable information regarding lake characteristics, surrounding environmental conditions, and geomorphological processes. However, field investigations within mountainous regions are often expensive, time-consuming, and difficult because many lakes are located within remote environments characterized by steep terrain, harsh weather conditions, and limited accessibility. As a result, obtaining continuous observations for large mountainous regions remains difficult using field investigations alone. 
+
+Remote sensing technologies have increasingly become important tools for monitoring high-mountain lakes because they provide opportunities for observing large and inaccessible regions. Previous studies have demonstrated that Earth observation technologies significantly improve monitoring capabilities for glacierized mountain environments and support hazard assessment activities \cite{Kaab2021}. This is particularly important for mountainous regions such as Kyrgyz Republic, where many potentially dangerous lakes remain located far from permanent observation networks and research infrastructure. 
+
+Optical satellite observations provide valuable information regarding lake area changes, glacier retreat, and environmental conditions. Multi-temporal satellite observations also allow researchers to investigate long-term environmental changes that may be difficult to observe using field investigations alone. However, optical observations are frequently affected by cloud cover, seasonal snow cover, topographic shadows, and illumination conditions that may reduce data availability and observation frequency. 
+
+Digital elevation models provide important information regarding terrain characteristics, slope conditions, geomorphological processes, and potential hazard zones. Similarly, radar observations provide opportunities for monitoring glacier environments independent of cloud conditions and daylight limitations. In addition, unmanned aerial vehicle observations provide high-resolution information that may improve understanding of local geomorphological conditions and lake characteristics. Therefore, combining different observation techniques may improve understanding of rapidly changing mountain environments. 
+
+Despite significant technological developments, monitoring high-mountain lakes remains challenging because mountainous environments are characterized by complex terrain, rapidly changing environmental conditions, limited accessibility, and uncertainties associated with different datasets. Recent studies emphasize that glacier hazard assessment increasingly requires multi-source observations because no single monitoring approach can fully capture rapidly changing mountain processes \cite{Emmer2022, Gu2023}. Therefore, integrating multiple datasets becomes important for reducing uncertainties and improving monitoring efficiency. 
+
+Continuous monitoring has become increasingly important because glacier lake expansion and environmental change may rapidly alter hazard conditions. Recent glacier-related disasters have further demonstrated the importance of improving monitoring approaches for potentially dangerous mountain lakes and strengthening hazard assessment capabilities \cite{Shugar2021}. These developments indicate that monitoring should not only focus on observing current lake conditions but also support future forecasting, hazard assessment, and disaster risk reduction activities \cite{Emmer2022}. 
+
+Therefore, combining multiple monitoring approaches becomes increasingly important for improving hazard assessment, monitoring efficiency, and future forecasting approaches for high-mountain lakes located within complex mountain environments
+
+\section{Research Problem}
+
+As discussed in Section 1.2.6, continuous monitoring of high-mountain glacier lakes in the Kyrgyz Republic remains constrained by difficult access, limited observation networks, cloud cover, seasonal snow, complex topography, and differences among available datasets \cite{Bolch2010, Paul2013}. These limitations are particularly important for lakes located in remote glacierized basins, where regular field observations are difficult to maintain.
+
+Beyond these practical monitoring limitations, important scientific uncertainties remain regarding the long-term evolution of individual glacier--lake systems. Lake development is controlled by interacting climatic, glaciological, hydrological, and geomorphological processes. Glacier retreat creates favorable conditions for lake formation and expansion, while changes in meltwater supply, drainage pathways, moraine stability, sediment redistribution, and buried-ice degradation influence future lake development and hazard potential \cite{Emmer2013, Carrivick2013, Veh2020}.
+
+Although numerous studies have documented glacier retreat, glacial lake expansion, and increasing GLOF hazards in the Tien Shan and other mountain regions \cite{Sorg2012, Zaginaev2016, Chen2024, Dehecq2020}, important knowledge gaps remain regarding the long-term evolution of high-mountain glacier lakes in the Kyrgyz Republic. Most previous studies have focused on regional glacier change or glacial lake inventories, whereas fewer studies have investigated the combined influence of glacier retreat, geomorphological change, climatic variability, and surface deformation on the evolution of individual glacier-fed lakes.
+
+As a result, the processes controlling the development and potential future evolution of many glacier-fed lakes in the Kyrgyz Republic are still not fully understood. This lack of integrated knowledge limits scientific understanding of glacier--lake dynamics and increases uncertainty in long-term hazard assessment and monitoring.
+ 
+\section{Research Goals and Objectives}
+
+The aim of this study is to develop an integrated approach for monitoring and assessing the dynamics of high-mountain glacier lakes in the Kyrgyz Republic, using Tosor Lake, located in the Teskey Ala-Too Range of the Northern Tien Shan, as a case study. The study provides a comprehensive assessment of the evolution of the glacier-lake system, including changes in the glacier, lake area, terrain, surface deformation, and climatic conditions, as well as the projection of future glacier evolution.
+
+
+To achieve this goal, the following objectives were established:
+
+\begin{enumerate}
+    \item To reconstruct the historical evolution of Tosor Glacier and Tosor Lake using historical and contemporary satellite imagery.
+
+    \item To quantify glacier terminus retreat and temporal changes in the surface area of Tosor Lake using multi-temporal remote sensing observations.
+
+    \item To analyze topographic and geomorphological changes within the glacier--lake basin using historical, satellite-derived, and UAV-derived digital elevation models.
+
+    \item To investigate surface deformation within the glacier, moraine complex, and surrounding terrain using Sentinel-1 DInSAR analysis.
+
+    \item To evaluate the relationship between meteorological variability, glacier melt conditions, and lake area changes using temperature, precipitation, snowfall, and Positive Degree Days.
+
+    \item To assess possible future glacier evolution using the Open Global Glacier Model under climate change scenarios.
+
+    \item To provide scientific information supporting future monitoring and hazard assessment of potentially hazardous glacier-fed lakes in the Kyrgyz Republic.
+\end{enumerate}
+
+\chapter{Materials and Methods}
+
+\section{Field Expedition to the Tien Shan and Data Collection}
+
+\subsection{Objectives and Route of the Field Expedition}
+
+Field investigations are an essential component of studies on high-mountain glacier lakes because they provide information that cannot be fully obtained through remote sensing alone. Although modern satellite technologies offer extensive opportunities for monitoring glacier and lake dynamics, direct field observations remain indispensable for assessing the current condition of glaciers, glacier lakes, moraine complexes, and other geomorphological features, as well as for validating and interpreting satellite-derived information. Furthermore, field investigations provide a better understanding of glacier-lake systems and facilitate the selection of the most suitable site for detailed investigation. 
+
+As part of the present research, a scientific field expedition was conducted between 28 July and 6 August 2025 in the Central and Northern Tien Shan of the Kyrgyz Republic. The expedition was carried out by the author together with the academic supervisor, Prof. Kenlo Nasahara (University of Tsukuba, Japan), with the participation of specialists from the Department of Monitoring and Forecasting of Emergency Situations under the Ministry of Emergency Situations of the Kyrgyz Republic. Throughout the expedition, the specialists accompanied the research team during field investigations at each study site, provided logistical support, and shared practical knowledge regarding the current condition of high-mountain glacier lakes and associated natural hazards. In several areas, access to the study sites was also facilitated by local authorities, including the Ayil Bashchy (head of the village). 
+
+The primary objective of the expedition was to investigate several representative high-mountain glacier lakes in the Tien Shan, collect original field data, conduct UAV surveys, and perform a comparative assessment of different glacier-lake systems in order to identify the most suitable site for detailed investigation. The overall route of the field expedition is presented in Figure 2.1. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Route.png}
+\caption{Route of the 2025 field expedition in the Central and Northern Tien Shan.}
+\label{Route}
+
+%\small Source: Author's map created in QGIS using Google Satellite imagery. 
+\end{figure}
+
+The expedition route was designed to include glacier lakes located in different parts of the Tien Shan. Field investigations were conducted in both the Central and Northern Tien Shan, enabling the examination of glacier-lake systems that have developed under different geographical and environmental conditions. The Central Tien Shan is characterized by extensive glacierization and large glacier complexes, whereas the Northern Tien Shan contains numerous smaller glacier basins and moraine-dammed glacier lakes that have formed or expanded as a result of recent glacier retreat. Investigating lakes in both regions provided an opportunity to compare different glacier-lake systems and to identify the most representative site for detailed study. 
+
+The first stage of the expedition was carried out in the Central Tien Shan, where Kol-Tor Lake and Ak-Sai Lake were investigated. Field activities included visual observations of glacier conditions, moraine complexes, lake shorelines, and surrounding terrain, together with ground photography and UAV surveys using a DJI Mavic Air unmanned aerial vehicle (UAV). The collected data documented the present condition of the investigated sites and provided valuable information on their geomorphological characteristics. Representative photographs obtained during field investigations in the Central Tien Shan are presented in Figure 2.2. 
+
+\begin{figure}[H]
+\centering
+
+% ---------- First row ----------
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_AkSai0.jpg}
+    \caption{Research team at the Ak-Sai Glacier.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_AkSai.jpg}
+    \caption{Ak-Sai glacierized valley.}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+% ---------- Second row ----------
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_KolTor.jpg}
+    \caption{Hiking to the Kol-Tor Lake.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_KolTor3.jpg}
+    \caption{Field observations at Kol-Tor Lake.}
+\end{subfigure}
+
+\caption{Field investigations in the Central Tien Shan during the 2025 expedition.}
+\label{fig:CentralTienShan}
+
+\end{figure}
+
+Following the completion of field investigations in the Central Tien Shan, the expedition continued to the Northern Tien Shan, where Ak-Suu Lake and Tosor Lake were surveyed. Similar field activities were conducted at each site, including visual observations, ground photography, investigations of glaciers, glacier lakes, moraine complexes, outlet channels, and surrounding landforms, as well as UAV surveys. Particular attention was given to glacier-lake interactions, the condition of moraine dams, and evidence of recent geomorphological processes. Representative photographs obtained during field investigations in the Northern Tien Shan are presented in Figure 2.3. 
+
+\begin{figure}[H]
+\centering
+
+% ---------- First row ----------
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_Tosor1.jpg}
+    \caption{Access to the Tosor Lake}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_AkSuu.jpg}
+    \caption{During field work near to Ak Suu Lake.}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+% ---------- Second row ----------
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_Tosor2.jpg}
+    \caption{Field survey under rapidly changing weather conditions.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Field_AkSuu1.jpg}
+    \caption{Preparation of the DJI Mavic Air UAV before the aerial survey at Ak-Suu Lake.}
+\end{subfigure}
+
+\caption{Field investigations in the Northern Tien Shan during the 2025 expedition.}
+\label{fig:NothernTienShan}
+
+\end{figure}
+
+During the expedition, original field data were collected, including ground photographs, UAV imagery, visual observations, and descriptions of the present environmental conditions at each study site. These data provided an opportunity to compare several high-mountain glacier lakes located in different parts of the Tien Shan, evaluate their geomorphological characteristics and current stage of development, and identify the most suitable site for detailed investigation. The field expedition therefore served as an important preliminary stage of this research, providing the basis for selecting the case study presented in the following section. 
+
+\subsection{Field Survey of Tosor Lake}
+
+Following our field observations in the Central and Northern Tien Shan, Tosor Lake was selected as the main study site of this research. It belongs to the glacier-fed moraine-dammed type, one of the most common types of high-mountain glacial lakes in the Northern Tien Shan. In recent decades, lakes of this type have developed rapidly in response to glacier retreat \cite{Zaginaev2016, Daiyrov2020, Chen2024}. Therefore, Tosor Lake provides an appropriate case for investigating glacier–lake evolution and demonstrating an integrated monitoring approach that may also be applied to similar lakes in the Kyrgyz Republic.
+
+Field investigations of Tosor Lake were conducted on 1 August 2025 as part of a scientific expedition organized by the University of Tsukuba in collaboration with specialists from the Department of Monitoring and Forecasting of Emergency Situations of the Ministry of Emergency Situations of the Kyrgyz Republic. The head of the local village also participated in organizing the fieldwork and provided logistical support during the survey. After reaching the upper Tosor River valley by vehicle, the expedition continued on foot through high-mountain terrain. The total length of the route was approximately 25 km, with the elevation increasing from about 1,600 m to 3,850 m above sea level, where Tosor Lake is located. The longitudinal elevation profile of the route is presented in Figure 2.4a.
+
+\begin{figure}[H]
+\centering
+
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor2.jpeg}
+    \caption{Elevation profile of the route to Tosor Lake.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor1.jpg}
+    \caption{Arrival at the starting point of the field survey.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor3.jpg}
+    \caption{Hiking to Tosor Lake across the moraine terrain.}
+\end{subfigure}
+
+\caption{Route to Tosor Lake during the field survey.}
+\label{fig:tosor_route}
+\end{figure}
+
+The route passed through steep moraine deposits, large boulder fields, and glacial landforms formed as a result of recent glacier retreat. Traversing this terrain required considerable physical effort and caution because of the unstable moraine surface and the abundance of large rocks. Despite the challenging high-mountain conditions, the expedition successfully reached the study area and completed all planned field activities. The main stages of field investigations are presented in Figure 2.5.
+
+\begin{figure}[H]
+\centering
+
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Field_Tosor3.jpg}
+    \caption{In front of Tosor Glacier.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor6.jpg}
+    \caption{UAV operations during the field survey.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor5.jpg}
+    \caption{Ascending toward Tosor Lake.}
+\end{subfigure}
+
+\caption{Main stages of the field survey at Tosor Lake.}
+\label{fig:tosor_route}
+\end{figure}
+
+Upon arrival at the lake, comprehensive field observations were carried out, including visual inspections of the glacier, moraine complex, shoreline, surrounding slopes, and outlet channel. Particular attention was given to the interaction between the glacier and the lake, ongoing glacier melting, the condition of the moraine dam, the presence of floating ice blocks, and evidence of recent geomorphological processes. Ground photographs were collected simultaneously to document the current condition of the study area and to support the interpretation of field observations (Figure 2.6).
+
+\begin{figure}[H]
+\centering
+
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor7.jpg}
+    \caption{Meltwater entering Tosor Lake from the glacier.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor8.jpg}
+    \caption{Glacier terminus with floating ice blocks.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{St_Tosor9.jpg}
+    \caption{Floating glacier ice blocks on Tosor Lake.}
+\end{subfigure}
+
+\caption{Field observations at Tosor Lake.}
+\label{fig:tosor_route}
+\end{figure}
+
+To obtain detailed spatial information, aerial surveys were conducted using a DJI Mavic Air unmanned aerial vehicle (UAV). During the field campaign, three separate UAV flights were carried out, covering different sections of the glacier-lake system and the adjacent moraine complex. The flight missions were carefully planned with high forward and side image overlap to ensure complete coverage of the study area and to enable the subsequent generation of a high-resolution orthomosaic and digital elevation model (DEM).
+
+Weather conditions changed rapidly throughout the field survey. For approximately two hours, the study area experienced strong winds, dense fog, and snowfall, which significantly complicated both UAV operations and visual observations. Nevertheless, all three UAV flights were completed successfully, providing sufficient aerial imagery together with ground photographs and field observations required for subsequent analysis.
+
+The field investigations confirmed that Tosor Lake is one of the most dynamically evolving glacier-lake systems within the surveyed region. During the survey, active glacier melting, direct contact between the glacier terminus and the lake, numerous floating ice blocks, intensive inflow of meltwater, and the structural characteristics of the moraine dam were documented. The following section provides a detailed description of the geographical setting, environmental conditions, and present state of Tosor Lake.
+
+\section{Study Area}
+
+\subsection{Geographic Setting of the Study Area within the Teskey Ala-Too Region}
+
+The study area is located within Jeti-Oguz District of Issyk-Kul Region in the southeastern part of the Kyrgyz Republic. Jeti-Oguz District occupies an area of approximately 14,499 km$^2$ and is characterized predominantly by mountainous terrain. Approximately 95 percent of the district consists of mountain landscapes, while valley areas occupy only a small proportion of the total territory \cite{MESKR2024}. 
+
+The district forms part of the northern Tien Shan Mountains and is bounded to the south by the Teskey Ala-Too Range, one of the major mountain ranges of the Kyrgyz Republic. Elevations within the district vary considerably, ranging from valley environments to glacierized mountain regions exceeding 5,000 m above sea level. The landscape of Jeti-Oguz district is characterized by rugged mountain relief, glacial valleys, moraine complexes, alpine meadows, and numerous mountain river systems. 
+
+The location of the study area within the territory of the Kyrgyz Republic is shown in Figure 2.7. The study area is situated in the eastern part of the country, south of Issyk-Kul Lake, within the glacierized regions of the Teskey Ala-Too Range. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{KR1.jpeg}
+\caption{Location of the study area within the Kyrgyz Republic.}
+\label{KR1}
+
+\small Source: Author's map created in QGIS using Google Satellite imagery. 
+\end{figure}
+
+A more detailed view of the study area is presented in Figure 2.8. The investigated lake is located within the upper part of the Tosor River basin in the central section of the Teskey Ala-Too Range. 
+
+\begin{figure}[H]
+\centering
+
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{St_Area.jpeg}
+    \caption{Sentinel-2 image (2025).}
+    \label{fig:St_Area}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{St_AreaB.jpg}
+    \caption{UAV image (2025).}
+    \label{fig:St_AreaB}
+\end{subfigure}
+
+\caption{Glacier-fed moraine-dammed Tosor Lake.}
+\label{fig:comparison}
+
+\end{figure}
+
+Tosor Lake is situated at approximately 41.961825° N and 77.373620° E at an elevation of 3,853 m above sea level. The lake is classified as a glacier-fed moraine-dammed lake. It is located within a high-mountain environment characterized by glacierized terrain, steep slopes, moraine deposits, and seasonal snow cover. The surrounding area remains largely inaccessible and can only be reached through mountain routes during favorable weather conditions.
+
+The lake occupies a small glacier-fed catchment within the upper Tosor River basin and is closely associated with the Tosor Glacier system. Its location within an actively evolving glacierized landscape makes it a suitable site for investigating glacier retreat, lake development, and glacier-related hazards. Furthermore, the remote setting and complex mountain environment highlight the importance of remote sensing and geospatial technologies for monitoring environmental change in the region \cite{Gu2023}.
+
+The Tosor River basin also contains local infrastructure, including roads, bridges, irrigation facilities, and agricultural land that support the livelihoods and economic activities of downstream communities and nearby villages. Consequently, understanding the evolution of the Tosor glacier-lake system is important not only from a scientific perspective but also for supporting future monitoring and risk management efforts within the basin.
+
+\subsection{Climatic and Environmental Conditions of the Teskey Ala-Too Region}
+
+The study area is characterized by a sharply continental climate \cite{MESKR2024} typical of high mountain regions of the Tien Shan. Climatic conditions are strongly influenced by elevation differences, complex topography, and seasonal atmospheric circulation patterns. Because the study area extends from valley environments to high-elevation glacierized regions, significant spatial variability in climatic conditions occurs throughout the region. 
+
+According to the Department of Monitoring and Forecasting of Emergency Situations of the Ministry of Emergency Situations of the Kyrgyz Republic, mean January temperatures range from approximately –4 °C within valley regions to nearly –24 °C in high-elevation environments \cite{MESKR2024}. During summer, average July temperatures range from approximately 18 °C in valley areas to around 8 °C within mountain environments. Such large seasonal temperature variations strongly influence snow accumulation, glacier melt, and hydrological processes within glacierized catchments. 
+
+Temperature conditions within high-mountain regions directly affect glacier dynamics and meltwater production \cite{Sorg2012}. Extremely low winter temperatures contribute to seasonal snow accumulation, while warmer summer conditions increase glacier melt and surface runoff. According to climatic observations and meteorological datasets, absolute minimum temperatures may reach approximately –30 °C, while maximum temperatures within lower elevation areas may exceed 30 °C. 
+
+Precipitation conditions also vary considerably with elevation. Annual precipitation generally ranges between 300–400 mm within valley regions and approximately 500–600 mm within mountainous environments \cite{MESKR2024}. Higher precipitation at elevated locations contributes to snow accumulation and glacier mass balance processes. 
+
+Snow cover represents an important environmental component influencing glacier hydrology and seasonal runoff generation. Snow depth within lower elevation valley environments may reach approximately 30 cm, while significantly greater snow accumulation occurs within high-elevation glacierized regions. 
+
+Environmental conditions surrounding Tosor Lake are additionally influenced by glacierized terrain, moraine complexes, steep slopes, and seasonal snow cover. Meteorological observations derived from climatic datasets indicate that temperature variability, snowfall conditions, and seasonal precipitation strongly influence glacier meltwater production and therefore contribute directly to lake development and seasonal hydrological changes. Open-source meteorological datasets such as Open-Meteo provide additional opportunities for evaluating environmental variability within remote mountain regions. 
+
+Therefore, climatic and environmental conditions represent important controlling factors influencing glacier retreat, lake evolution, and potential hazard development within the study area \cite{Sorg2012, Aizen2006}.
+
+\subsection{Characteristics and Development of Tosor Lake}
+
+Tosor Lake is a glacier-fed high-mountain lake associated with the Tosor Glacier system located within the Teskey Ala-Too Range of the northern Tien Shan Mountains. Based on its geomorphological characteristics and surrounding landforms, the lake is classified as a moraine-dammed glacier lake with an ice-cored moraine complex forming the natural dam structure. The lake belongs to the category of potentially hazardous high-mountain lakes because its development is closely related to glacier retreat and changing environmental conditions \cite{MESKR2024}. 
+
+The lake is situated within the upper Tosor River basin and is surrounded by glacierized terrain, steep mountain slopes, moraine deposits, and active geomorphological features typical of high-elevation mountain environments. The surrounding landscape has been shaped by long-term glacial processes, resulting in the formation of a complex moraine system composed of unconsolidated sediments, glacial deposits, and buried ice. 
+
+The morphology and evolution of Tosor Lake are strongly controlled by interactions between glacier dynamics and moraine development. Ice-cored moraine complexes are particularly important because degradation of buried ice may alter drainage conditions, influence lake stability, and contribute to future geomorphological changes. Consequently, the evolution of the lake is closely linked to both glacier retreat and the ongoing modification of moraine structures. 
+
+Based on the Catalog of Potentially Dangerous Glacier Lakes of the Kyrgyz Republic, Tosor Lake is classified as a Category I potentially hazardous glacier lake \cite{MESKR2024}. The lake is considered potentially dangerous due to the presence of an ice-cored moraine dam and its location within an actively evolving glacierized environment.
+
+\begin{figure}[H]
+\centering
+
+\includegraphics[width=0.48\textwidth]{A.jpg}
+\hfill
+\includegraphics[width=0.48\textwidth]{B.jpg}
+
+\caption{UAV view of Tosor Lake and the surrounding moraine complex during field observations in August 2025. Source: Author's UAV survey (2025).}
+\label{fig:comparison1}
+
+%\vspace{0.2cm}
+%\small Source: Author's UAV survey (2025).
+\end{figure}
+
+Figure 2.9 illustrates Tosor Lake and the surrounding moraine complex. The photograph highlights the glacier-fed water body, steep moraine slopes, and geomorphological conditions that influence lake development and stability. The close relationship between the lake, moraine deposits, and the surrounding glacierized landscape is clearly visible. 
+
+The hydrological behavior of Tosor Lake is primarily influenced by glacier melt, snowmelt, precipitation, and runoff originating from the surrounding catchment area. Seasonal climatic conditions directly affect water accumulation within the lake, while interannual variations in glacier melt contribute to changes in lake extent and hydrological conditions. 
+
+The formation and evolution of Tosor Lake are closely connected with glacier retreat occurring within the surrounding glacier system. Regional glacier lake inventories developed using multi-temporal satellite observations between 1990 and 2023 identified Tosor Lake as one of the developing glacier lakes within the Central Asian Tien Shan region \cite{Chen2024}. Although the lake existed before 2020, it first appeared in the regional inventory compiled by Chen et al. (2024), indicating substantial expansion during recent decades. 
+
+The continued retreat of the Tosor Glacier, together with increasing meltwater availability and ongoing geomorphological changes within the moraine complex, has contributed to the development of the lake. Because lake evolution remains strongly controlled by glacier dynamics, moraine stability, and environmental conditions, Tosor Lake represents an important case study for investigating high-mountain lake development, glacier-related hazards, and monitoring approaches under changing climatic conditions in the Tien Shan region. 
+
+\section{Methodological Framework of the Study}
+
+Monitoring the evolution of glacier-fed lakes requires the integration of multiple sources \cite{Xu2024, Huggel2020} of information because no single dataset can fully describe glacier retreat, lake development, terrain evolution, surface deformation, and climatic influences. Therefore, this study adopted an integrated methodological framework combining field observations, remote sensing, GIS analysis, and meteorological data.
+
+The overall workflow of the study is presented in Figure 2.10. The research began with field investigations, during which UAV surveys and visual observations were conducted to document the current condition of Tosor Lake, the glacier, and the surrounding moraine complex.
+
+The second stage involved the collection of remote sensing datasets, including historical KH-9 Hexagon imagery, Landsat-7, Sentinel-1, Sentinel-2, and the ALOS World 3D Digital Elevation Model. In parallel, meteorological observations, including air temperature, precipitation, snowfall, and Positive Degree Days (PDD), were collected to characterize climatic conditions within the study area.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Methodology.png}
+\caption{Workflow of the research.}
+\label{methodology}
+ 
+\end{figure}
+
+After data acquisition, all datasets were preprocessed using appropriate software, including QGIS 3.44.3 (Solothurn), ESA SNAP 13.0.1, Agisoft Metashape Professional, and the Open Global Glacier Model (OGGM) 1.6.3. The processed datasets were subsequently analyzed to investigate glacier retreat, lake dynamics, terrain evolution, surface deformation, and climatic variability. The results obtained from these analyses were then integrated to provide a comprehensive assessment of environmental changes within the Tosor glacier–lake system.
+
+The individual stages of this workflow are described in detail in the following sections of this chapter.
+
+\section{Data Sources and Preprocessing}
+
+This study used historical imagery, modern optical and radar satellite observations, UAV products, digital elevation models, and meteorological records covering the period from 1973 to 2025. These complementary datasets were selected to investigate glacier retreat, lake evolution, terrain change, surface deformation, and climatic conditions within the Tosor glacier--lake system. The principal datasets, their characteristics, and their applications are summarized in Table~2.1. The individual datasets and their preprocessing procedures are described in the following sections.
+
+\begin{landscape}
+
+\begin{table}[p]
+\centering
+\caption{Satellite and UAV datasets used in this study.}
+\label{tab:datasets}
+
+\small
+
+\begin{tabularx}{\linewidth}{|p{4cm}|p{2.5cm}|p{2cm}|p{3cm}|X|}
+\hline
+\textbf{Satellite / Platform} &
+\textbf{Date / dd.mm.yyyy} &
+\textbf{Resolution (m)} &
+\textbf{Data Type} &
+\textbf{Application} \\
+\hline
+
+KH-9 Hexagon &
+31.07.1973 &
+2.7 &
+Optical imagery &
+Historical analysis \\
+\hline
+
+ALOS World 3D DSM (AW3D30) &
+10.08.2010 &
+30 &
+DEM / DSM &
+Terrain analysis \\
+\hline
+
+Landsat-7 ETM+ SLC-off &
+22.08.2010 &
+30 &
+Optical imagery &
+Long-term environmental monitoring \\
+\hline
+
+Sentinel-2 L1C &
+09.08.2016 &
+10 &
+Optical imagery &
+Lake monitoring \\
+\hline
+
+Sentinel-2 L2A &
+2019--2025 August each year &
+10 &
+Optical imagery &
+Lake dynamics and environmental changes \\
+\hline
+
+Sentinel-1A IW SLC &
+09.08, 21.08, 02.09. 2021, 05.08, 17.08, 29.08. 2024 &
+10 &
+SAR imagery &
+DInSAR surface deformation analysis \\
+\hline
+
+DJI Mavic Air UAV &
+01.08.2025 &
+$\sim$0.03 &
+UAV imagery / DEM &
+High-resolution mapping, orthomosaic generation, DEM creation, and field validation \\
+\hline
+
+Google Earth Pro &
+Various dates &
+0.5 &
+High-resolution imagery &
+Visual interpretation and validation \\
+\hline
+
+\end{tabularx}
+
+\end{table}
+
+\end{landscape}
+
+The earliest information about the study area was obtained from declassified KH-9 Hexagon imagery acquired on 31 July 1973. KH-9 Hexagon was a United States reconnaissance satellite program operated by the National Reconnaissance Office (NRO) between 1971 and 1986 and was originally developed for military reconnaissance during the Cold War. The satellite was equipped with two high-resolution Panoramic Cameras, providing a ground resolution of approximately 0.6–0.8 m, and a Mapping Camera with a spatial resolution of approximately 6–9 m for cartographic and topographic applications. The KH-9 imagery was declassified through a series of releases between 1995 and 2011, making the imagery available for scientific research \cite{Surazakov2010, Dehecq2020}. In this study, declassified stereoscopic Panoramic Camera images acquired on 31 July 1973 were used as the historical baseline for investigating glacier extent and geomorphological conditions prior to the formation of the present-day Tosor Lake.
+
+Modern observations were obtained from several complementary datasets. Landsat-7 and Sentinel-2 optical imagery were used to produce true color composite images for visual interpretation and to investigate glacier retreat and temporal changes in lake extent \cite{Drusch2012}. Topographic information was derived from the ALOS World 3D DSM and high-resolution UAV surveys conducted during the 2025 field expedition. Sentinel-1 Synthetic Aperture Radar (SAR) imagery was used for surface deformation analysis, while meteorological observations, including air temperature, precipitation, snowfall, and Positive Degree Days (PDD), were used to examine the relationship between climatic conditions and glacier–lake evolution \cite{Torres2012, Huss2018}.
+
+Before analysis, all datasets underwent preprocessing according to their characteristics. Optical satellite images were corrected and clipped to the study area. Sentinel-1 SAR data were processed using the standard DInSAR workflow in ESA SNAP \cite{ESA2022}, and UAV photographs were processed in Agisoft Metashape Professional to generate high-resolution orthomosaics and digital elevation models using Structure-from-Motion photogrammetry \cite{Westoby2012}. DEM datasets were transformed into a common coordinate system before terrain analysis. Finally, all processed datasets were integrated within a GIS environment to ensure consistency during subsequent analyses.
+
+\section{Remote Sensing Analysis of Glacier and Lake Dynamics}
+
+Remote sensing analysis was conducted to investigate long-term glacier retreat and the temporal evolution of Tosor Lake. Historical and contemporary optical satellite imagery was integrated to reconstruct environmental changes within the Tosor basin between 1973 and 2025. All image processing and spatial analyses were performed in QGIS.
+
+Historical KH-9 Hexagon imagery was first georeferenced in QGIS using stable terrain features that remained unchanged over time, including exposed bedrock and ridge crests. After georeferencing, the imagery was visually interpreted to delineate glacier boundaries, moraine morphology, drainage pathways, and other geomorphological features. These historical observations provided the reference conditions against which recent satellite imagery was compared.
+
+To investigate long-term glacier and lake evolution, Landsat-7 ETM+, Sentinel-2 Level-1C, and Sentinel-2 Level-2A imagery were combined with the historical KH-9 data. These datasets were used to compare glacier extent, moraine configuration, drainage patterns, and the development of Tosor Lake between 1973 and 2025.
+
+The annual development of Tosor Lake was assessed using Sentinel-2 Level-2A imagery acquired during August from 2019 to 2025. August images were selected because seasonal snow cover is generally at or near its annual minimum, allowing glacier margins and lake boundaries to be identified more accurately and consistently between different years.
+
+Lake boundaries were extracted using the Normalized Difference Water Index (NDWI), which enhances open water while suppressing the reflectance of surrounding land surfaces and vegetation \cite{McFeeters1996}. The index was calculated as
+
+\begin{equation}
+NDWI=\frac{Green-NIR}{Green+NIR}
+\end{equation}  
+
+where Green and NIR represent the reflectance values of the green and near-infrared spectral bands, respectively.
+
+For each Sentinel-2 image, NDWI was calculated in QGIS, followed by threshold classification to separate water bodies from the surrounding terrain. The classified raster was converted into vector polygons, and the lake area was calculated for each observation year. This procedure enabled quantitative analysis of annual changes in lake extent between 2019 and 2025.
+
+Long-term glacier changes were evaluated by manually digitizing glacier boundaries from the historical KH-9 imagery and comparing them with Landsat-7 and Sentinel-2 observations. Manual interpretation was also applied to identify geomorphological features, including moraine ridges, exposed bedrock, drainage channels, and recently deglaciated areas, which could not be reliably extracted using automated classification methods \cite{Paul2013, Kaab2018, Bolch2010}.
+
+The interpretation of satellite imagery was supported by Google Earth Pro and high-resolution UAV imagery collected during the 2025 field expedition. These datasets were used to verify glacier and lake boundaries and to improve the interpretation of geomorphological features observed in the satellite imagery.
+
+The final outputs included glacier outlines, lake boundary maps, and quantitative measurements of glacier retreat and lake area changes over the study period.
+
+\section{DEM and Terrain Analysis}
+
+Three Digital Elevation Models (DEMs) representing different observation periods were used to investigate terrain evolution within the Tosor Lake basin. The datasets included a high-resolution UAV-derived DEM generated during the 2025 field survey, the ALOS World 3D Digital Surface Model (AW3D30) acquired in 2010, and a historical DEM reconstructed from stereoscopic KH-9 Hexagon imagery acquired in 1973. The combination of these datasets enabled the analysis of topographic changes over more than five decades.
+
+The UAV-derived DEM was generated from aerial photographs collected during the field survey on 1 August 2025 using a DJI Mavic Air unmanned aerial vehicle. Image processing was performed in Agisoft Metashape Professional following the standard Structure-from-Motion (SfM) photogrammetric workflow. The processing included image alignment, camera optimization, dense point cloud generation, mesh construction, orthomosaic generation, and DEM creation. The resulting products consisted of a high-resolution orthomosaic and a DEM with a spatial resolution of less than 0.5 m, providing detailed topographic information for the Tosor Lake basin.
+
+The ALOS World 3D Digital Surface Model (AW3D30) was downloaded from the Japan Aerospace Exploration Agency (JAXA) archive. The dataset provides near-global elevation data with a spatial resolution of approximately 30 m and was used as the reference DEM throughout this study. In addition to terrain analysis, the ALOS DEM was used to obtain elevation values for Ground Control Points (GCPs) during the reconstruction of the historical DEM and as the reference dataset for DEM comparison.
+
+The historical DEM was reconstructed from stereoscopic KH-9 Hexagon Panoramic Camera imagery using Agisoft Metashape Professional. During photogrammetric processing, more than 25 markers were manually placed on stable terrain features visible in the stereoscopic images. Their horizontal coordinates and elevation values were initially obtained from the ALOS World 3D DEM and used as Ground Control Points (GCPs) to improve the geometric accuracy of the reconstruction. Following the initial reconstruction, the KH-9 DEM was horizontally co-registered with the 2025 UAV-derived DEM using stable, non-glacierized terrain outside the active glacier and moraine areas.
+
+To ensure spatial consistency, all DEM datasets were transformed into the WGS 84 / UTM Zone 43N coordinate reference system (EPSG:32643). Before terrain comparison, all DEMs were resampled to the spatial resolution of the ALOS World 3D DEM (approximately 30 m). This step was necessary because the UAV-derived DEM had a spatial resolution of less than 0.5 m, whereas the historical and ALOS DEMs had considerably lower spatial resolutions. Resampling ensured that elevation differences were calculated using DEMs with a consistent spatial resolution during the DEM of Difference (DoD) analysis.
+
+Topographic profiles were extracted from the DEMs using the Profile Tool plugin in QGIS. The profiles were used to examine elevation changes along selected cross-sections of the glacier–lake system and to characterize the topographic relationship between the glacier terminus, moraine complex, lake basin, and surrounding terrain.
+
+Long-term terrain changes were quantified using the DEM of Difference (DoD) method, which calculates elevation differences by subtracting one DEM from another \cite{Wheaton2010}. In this study, DoD analysis was performed by comparing the historical KH-9 DEM, the ALOS World 3D DEM, and the UAV-derived DEM. The resulting elevation difference maps were used to quantify surface elevation changes associated with glacier retreat and geomorphological evolution within the Tosor Lake basin.
+
+\section{DInSAR Surface Deformation Analysis}
+
+Differential Interferometric Synthetic Aperture Radar (DInSAR) was used to investigate possible surface deformation within the Tosor Lake basin. The main objective of this analysis was to detect short-term ground displacement around the moraine complex, lake margin, and surrounding slopes. This step was important because surface deformation may indicate ongoing geomorphological activity within the glacier–lake system.
+
+Sentinel-1A SAR imagery was selected for the DInSAR analysis because it provides radar observations suitable for detecting surface displacement in remote mountain environments. The data were acquired in Interferometric Wide Swath (IW) mode and ascending orbit geometry. Four interferometric image pairs were selected for this study: 9–21 August 2021, 21 August–2 September 2021, 5–17 August 2024, and 17–29 August 2024. These pairs were chosen to examine deformation during comparable summer periods and to reduce the influence of seasonal snow cover.
+
+The DInSAR processing was performed using ESA SNAP. The workflow included orbit correction, TOPSAR splitting, back-geocoding, Enhanced Spectral Diversity (ESD) correction, interferogram generation, TOPSAR debursting, topographic phase removal, Goldstein phase filtering, subset extraction, phase unwrapping using SNAPHU, conversion from phase to displacement, and terrain correction \cite{ESA2022, Hanssen2001}. This processing chain was applied separately to each interferometric pair.
+
+After phase unwrapping, the interferometric phase was converted into line-of-sight (LOS) displacement. LOS displacement represents relative surface movement between the two SAR acquisition dates in the direction of the satellite sensor. Therefore, the resulting maps do not represent true vertical displacement, but rather displacement along the radar viewing direction. This distinction was considered during interpretation.
+
+For each interferometric pair, coherence was examined before interpreting the displacement results. In high-mountain glacierized terrain, coherence can be reduced by glacier movement, snow cover, surface moisture, steep slopes, and rapid changes in surface conditions. Low coherence areas were interpreted with caution because they may contain noise or unreliable displacement values. As a result, deformation interpretation focused mainly on areas where the interferometric signal was sufficiently stable.
+
+The displacement maps were interpreted together with optical satellite images, UAV observations, DEM data, and field observations from the 2025 expedition. This comparison helped to relate possible deformation signals to visible geomorphological features such as moraine slopes, glacier margins, and unstable terrain. It also helped to distinguish possible real displacement from artefacts caused by temporal decorrelation, atmospheric effects, or processing limitations.
+
+The final outputs of the DInSAR analysis were LOS displacement maps for each selected image pair. These maps were used to examine the spatial distribution of possible surface deformation within the Tosor Lake basin and to identify areas requiring further attention in the interpretation of glacier–lake system dynamics.
+
+\section{Meteorological Data Analysis}
+
+Meteorological data were used to evaluate the climatic conditions influencing the development of Tosor Lake and the dynamics of the surrounding glacier during the period from 2019 to 2025. Meteorological analysis formed an important component of this study because variations in air temperature, precipitation, and snowfall directly affect glacier melt, snow accumulation, meltwater production, and, consequently, the evolution of glacier-fed lakes. Integrating meteorological observations with remote sensing data provided additional context for interpreting the environmental changes observed within the Tosor Lake basin.
+
+Two complementary meteorological data sources were used in this study: Open-Meteo and Meteostat. The combination of these datasets made it possible to obtain both gridded climate information for the study area and continuous daily temperature observations required for calculating Positive Degree Days (PDD).
+
+The Open-Meteo database was used to obtain meteorological data for the geographic coordinates of the Tosor Lake basin. Air temperature, precipitation, and snowfall data were extracted and used to calculate the mean August air temperature, total August precipitation, annual precipitation, and annual snowfall for each year between 2019 and 2025. August was selected because it represents the end of the glacier ablation season, when glacier melting is close to its annual maximum and seasonal snow cover has largely disappeared. In addition, most of the satellite imagery used in this study was acquired during August, ensuring consistency between meteorological observations and remote sensing analysis.
+
+Annual Positive Degree Days (PDD) were calculated using daily mean air temperature records obtained from the Meteostat archive for the Tian-Shan meteorological station (WMO 36982), which is the nearest available meteorological station to the study area. Station observations were selected for PDD calculation because they provide continuous daily temperature records required to estimate the cumulative annual positive temperatures.
+
+Positive Degree Days (PDD) were calculated as the cumulative sum of all daily mean air temperatures exceeding 0 °C during each calendar year according to the following equation:
+
+\begin{equation}
+PDD=\sum_{i=1}^{n}\max(T_i,0)
+\label{eq:pdd}
+\end{equation}
+
+where $T_i$ is the daily mean air temperature on day $i$, and $\max(T_i,0)$ equals $T_i$ when $T_i>0^\circ$C and 0 otherwise. PDD is widely used in glaciological studies as an indicator of potential glacier melt because cumulative positive air temperatures are closely related to glacier ablation processes \cite{Braithwaite1984, Hock2003}.
+
+Following data processing, annual time series of August mean air temperature, August precipitation, annual precipitation, annual snowfall, and annual PDD were compiled for the study period. These meteorological variables were subsequently compared with observed changes in glacier extent and lake area to investigate possible relationships between climatic conditions and the recent evolution of the Tosor glacier–lake system.
+
+\section{Future Glacier Evolution Modelling Using OGGM}
+
+To assess the possible future evolution of Tosor Glacier, the Open Global Glacier Model (OGGM) was used. OGGM is an open-source numerical glacier model that simulates glacier evolution using glacier inventory data, digital elevation models, and climate forcing \cite{maussion2018,rounce2023}.
+
+Tosor Glacier was identified in the Randolph Glacier Inventory using the glacier identifier RGI60-13.09157. The model was initialized using the glacier outline and associated information from the RGI, together with the topographic and climate datasets required by the standard OGGM workflow.
+
+Future glacier evolution was simulated under the SSP245 and SSP585 climate scenarios, which represent intermediate and high greenhouse-gas emission pathways, respectively \cite{rounce2023}. The simulations were used to evaluate possible changes in glacier area up to 2050.
+
+The main model outputs included projected glacier area and relative glacier area loss over time. The results were interpreted together with the observed glacier retreat, lake development, geomorphological changes, and meteorological conditions to assess the possible future evolution of the Tosor glacier-lake system.
+
+The OGGM simulations provide scenario-based projections rather than exact predictions of future glacier conditions. Therefore, the modelling results were used as supporting information for long-term glacier monitoring and future hazard assessment.
+
+\chapter{Results and Discussion}
+
+\section{Glacier Retreat and Development of Tosor Lake}
+
+The long-term evolution of the Tosor glacier–lake system between 1973 and 2025 is presented in Figure 3.1. Comparison of historical KH-9 Hexagon imagery with recent Sentinel-2 observations reveals substantial glacier retreat, progressive development of Tosor Lake, and significant modifications of the meltwater drainage system within the basin.
+
+In 1973, the glacier occupied a considerably larger area and extended farther downslope than at present (Figure 3.1b). The glacier tongue reached the lower part of the valley, and meltwater was drained around the moraine complex through a different flow pathway. During this period, the present-day Tosor Lake was either absent or considerably smaller than its current extent.
+
+Comparison of glacier outlines indicates that the glacier terminus retreated by approximately 390 m between 1973 and 2025. As the glacier receded, previously ice-covered terrain became exposed, creating favorable conditions for meltwater accumulation and the subsequent formation and expansion of Tosor Lake.
+
+In addition to glacier retreat, substantial changes occurred in the hydrological system. As shown in Figure 3.1(b), the meltwater drainage pathway observed in 1973 differed markedly from the present-day configuration. Continued glacier retreat and lake expansion gradually redirected meltwater flow toward the moraine-dammed depression occupied by Tosor Lake. This reorganization of the drainage network reflects the ongoing evolution of the glacier–lake system and demonstrates the close relationship between glacier retreat and hydrological change.
+
+\begin{figure}[H]
+\centering
+
+%---------------------- (a) ----------------------%
+\begin{subfigure}{0.98\textwidth}
+\centering
+
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{2025.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{2016.jpg}
+\end{minipage}
+
+\caption{Comparison of Sentinel-2 imagery illustrating the development of Tosor Lake between 2016 and 2025.}
+\end{subfigure}
+
+\vspace{0.4cm}
+
+%---------------------- (b) ----------------------%
+\begin{subfigure}{0.85\textwidth}
+\centering
+\includegraphics[width=\textwidth]{1973.jpg}
+\caption{Evolution of glacier extent, meltwater drainage pathways, and lake basin configuration derived from KH-9 Hexagon (1973) and Sentinel-2 (2016--2025) imagery.}
+\end{subfigure}
+
+\caption{Long-term evolution of the Tosor glacier--lake system between 1973 and 2025.}
+\label{fig:tosor_development}
+
+\end{figure}
+
+The recent development of Tosor Lake is further illustrated by the comparison of Sentinel-2 imagery acquired in 2016 and 2025 (Figure 3.1a). By 2016, a small proglacial lake had already formed in front of the glacier terminus. By 2025, Tosor Lake had expanded considerably, while maintaining direct contact with the glacier terminus. Field observations documented active calving at the glacier front, with numerous detached ice blocks floating on the lake surface. These observations indicate that lake development continued throughout the last decade as glacier retreat progressed.
+
+The observed evolution of Tosor Lake is consistent with patterns reported from other glacierized mountain regions, where glacier retreat promotes the formation and expansion of moraine-dammed lakes \cite{Veh2020, Carrivick2013, Chen2024}. As glaciers lose mass and retreat upslope, newly exposed depressions become available for meltwater storage, allowing existing lakes to expand and new lakes to develop.
+
+Field investigations conducted during the 2025 expedition provided additional evidence of active glacier–lake interaction (Figure 3.2). The glacier terminus remained in direct contact with the lake, and numerous floating ice blocks were observed on the water surface, indicating ongoing ice calving. The presence of detached ice fragments suggests that glacier mass loss occurs not only through surface melting but also through mechanical calving into the lake.
+
+\begin{figure}[H]
+\centering
+
+\includegraphics[width=0.48\textwidth]{calving_A.jpg}
+\hfill
+\includegraphics[width=0.48\textwidth]{CalvingB.jpg}
+
+\caption{Active ice calving observed at the glacier terminus during the 2025 field survey.}
+\label{fig:calving}
+
+\end{figure}
+
+Active calving demonstrates that the Tosor glacier–lake system remains highly dynamic. Ice calving removes ice directly from the glacier front while simultaneously increasing meltwater input into the lake, further contributing to lake development \cite{Warren2003, Carrivick2013}. Together with glacier retreat and changes in meltwater drainage, these processes indicate that the evolution of Tosor Lake is controlled by the combined influence of climatic and geomorphological factors.
+
+Overall, the results demonstrate that the Tosor basin has undergone substantial environmental transformation over the past five decades. Continuous glacier retreat, progressive lake expansion, reorganization of the drainage system, and active ice calving collectively illustrate the transition from a glacier-dominated landscape to an evolving glacier–lake system. These findings provide the foundation for the subsequent analysis of lake dynamics, climatic influences, terrain evolution, and surface deformation.
+
+\section{Dynamics of Tosor Lake Area}
+
+The temporal evolution of Tosor Lake between 2019 and 2025 is presented in Figures 3.3–3.5. Annual Sentinel-2 observations indicate that the lake underwent continuous development throughout the study period, although the rate of expansion varied from year to year. Overall, the lake area increased from 21,205 m² in 2019 to 27,225 m² in 2025, representing a net increase of approximately 6,020 m² (about 28 percent) over seven years.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Lake_19_25.png}
+\caption{Annual Sentinel-2 imagery showing the development of Tosor Lake between 2019 and 2025}
+\label{fig:lake_19_25}
+
+\end{figure}
+
+Figure 3.3 illustrates the annual development of Tosor Lake using Sentinel-2 imagery acquired during August between 2019 and 2025. Visual comparison shows that the overall morphology of the lake remained relatively stable, whereas noticeable variations occurred in lake extent and shoreline position. Between 2019 and 2021, only minor changes were observed. More pronounced expansion became evident after 2021, particularly along the northern and western margins of the basin. The largest lake extent was recorded in 2024, followed by a slight contraction of the water surface in 2025. Despite this reduction, the lake remained substantially larger than at the beginning of the observation period.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{2019_2025.jpg}
+\caption{Comparison of annual Tosor Lake outlines derived from Sentinel-2 imagery between 2019 and 2025.}
+\label{fig:lake1}
+
+\end{figure} 
+
+Spatial changes in lake development are illustrated in Figure 3.4, which compares the annual lake outlines derived from Sentinel-2 imagery between 2019 and 2025. The superimposed lake outlines show that shoreline changes were not spatially uniform. The most pronounced expansion occurred in the southern, glacier-proximal part of the basin, where newly exposed terrain became available as the glacier retreated. In contrast, the northern shoreline remained comparatively stable throughout the study period. This pattern indicates that glacier retreat was the primary driver of lake development, while local basin morphology influenced the direction and magnitude of shoreline changes. The results also show that lake evolution varied from year to year rather than following a simple, continuous expansion.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{lake_graf.png}
+\caption{Temporal variation in the surface area of Tosor Lake between 2019 and 2025 derived from Sentinel-2 imagery.}
+\label{fig:lakeB}
+
+\end{figure}
+
+Quantitative changes in lake area are presented in Figure 3.5. Between 2019 and 2020, the lake expanded by 932 m², reaching 22,137 m². A slight decrease of 466 m² occurred in 2021, reducing the lake area to 21,671 m². Although this represented a temporary contraction, the overall expansion trend resumed during the following years.
+
+Lake growth accelerated after 2021. In 2022, the lake expanded by 2,098 m², reaching 23,769 m², followed by a further increase of 1,397 m² in 2023, when the lake area reached 25,166 m². The most pronounced expansion occurred between 2023 and 2024, when the lake increased by 5,360 m², reaching its maximum observed extent of 30,526 m².
+
+In 2025, the lake area decreased by 3,301 m², resulting in a total area of 27,225 m². Although this represents the first notable reduction during the observation period, the lake remained considerably larger than in 2019. Such short-term fluctuations are common in glacier-fed lakes and may reflect interannual variations in glacier melt, precipitation, snowfall, and meltwater drainage conditions \cite{Sorg2012}.
+
+The observed increase in lake area closely corresponds with the glacier retreat described in Section 3.1. As the glacier front continued to recede, additional space became available for meltwater storage within the moraine-dammed basin, while continued glacier melting supplied water that promoted progressive lake expansion. The close correspondence between glacier retreat and lake growth demonstrates the strong coupling between glacier dynamics and the hydrological evolution of the Tosor glacier–lake system.
+
+Overall, the results demonstrate that Tosor Lake experienced substantial expansion between 2019 and 2025, despite short-term interannual fluctuations. The long-term trend reflects the continuing response of this glacier-fed moraine-dammed lake to glacier recession and highlights the dynamic evolution of the Tosor glacier–lake system under changing environmental conditions.
+
+\section{Relationship Between Climatic Conditions and Lake Development}
+
+To investigate the influence of climatic conditions on the recent evolution of Tosor Lake, annual Positive Degree Days (PDD), precipitation, snowfall, and August meteorological conditions were compared with observed changes in lake area between 2019 and 2025. The results are summarized in Table 3.1 and Figures 3.6–3.7. Together, these datasets provide insight into the relationship between climatic variability, glacier melt, and the temporal evolution of the glacier-fed lake.
+
+\begin{table}[H]
+\centering
+\caption{Positive Degree Days (PDD) and Tosor Lake area dynamics between 2019 and 2025.}
+\label{tab:pdd_lake_area}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+Year & PDD & Lake Area (m$^{2}$) & Annual Area Change (m$^{2}$) \\
+\hline
+2019 & 437.6 & 21,205 & 0 \\
+\hline
+2020 & 397.9 & 22,137 & +932 \\
+\hline
+2021 & 577.9 & 21,671 & -466 \\
+\hline
+2022 & 666.7 & 23,769 & +2,098 \\
+\hline
+2023 & 494.7 & 25,166 & +1,397 \\
+\hline
+2024 & 586.3 & 30,526 & +5,360 \\
+\hline
+2025 & 623.2 & 27,225 & -3,301 \\
+\hline
+\end{tabular}
+
+\end{table}
+
+Table 3.1 compares annual PDD values with changes in lake area during the study period. Overall, years characterized by relatively high PDD values generally corresponded to periods of continued lake expansion, reflecting favorable thermal conditions for glacier melting. However, the relationship was not strictly linear. The highest annual PDD (666.7) was recorded in 2022, whereas the maximum lake area (30,526 m²) was observed two years later, in 2024. Conversely, despite a relatively high PDD value (623.2) in 2025, the lake area decreased to 27,225 m².
+
+These observations indicate that annual lake development cannot be explained solely by cumulative positive air temperatures. Glacier retreat is a progressive process, and the amount of meltwater reaching the lake depends on several interacting factors, including glacier geometry, seasonal melting intensity, precipitation, snow accumulation, drainage conditions, and the storage capacity of the moraine-dammed basin. Consequently, changes in lake area may lag behind annual climatic conditions, reflecting the cumulative response of the glacier–lake system rather than the influence of a single year.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{weather.png}
+\caption{Annual precipitation and snowfall totals in the Tosor basin between 2019 and 2025.}
+\label{fig:weather}
+
+\end{figure}
+
+Annual precipitation and snowfall totals during the study period are presented in Figure 3.6. Both variables exhibited interannual variability, although annual precipitation generally increased toward the end of the observation period. The highest annual precipitation (741.2 mm) was recorded in 2024, coinciding with the largest observed lake extent. Increased precipitation contributes directly to runoff entering the lake basin, while snowfall replenishes seasonal snow storage that subsequently supplies additional meltwater during the ablation season. Together, these processes likely enhanced water availability within the Tosor basin and contributed to the pronounced lake expansion observed in 2024.
+
+Although snowfall remained relatively high throughout the study period, its influence on lake development is indirect. Snow accumulated during winter contributes to glacier mass balance and seasonal snow cover, but its effect on lake area becomes evident only after melting during the warm season. Therefore, variations in snowfall are expected to influence lake development over longer timescales rather than producing an immediate response within the same year.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{weather_A.png}
+\caption{Mean August temperature and August precipitation in the Tosor basin between 2019 and 2025.}
+\label{fig:weatherB}
+
+\end{figure}
+
+Because all Sentinel-2 images used for lake mapping were acquired during August, meteorological conditions during this month were analyzed separately (Figure 3.7). August corresponds to the peak ablation season in the study area, when glacier melting is most intensive and lake extent approaches its seasonal maximum. Consequently, August temperature and precipitation provide a more direct representation of the climatic conditions immediately preceding satellite observations than annual averages.
+
+The highest mean August air temperature (4.4 °C) was recorded in 2024, coinciding with the maximum observed lake area. Elevated temperatures during the peak melt season likely accelerated glacier ablation and increased meltwater inflow into Tosor Lake. At the same time, annual precipitation also reached its highest value in 2024, suggesting that both meltwater production and water input from precipitation contributed to the enlarged lake extent. In contrast, August precipitation varied considerably between years and did not exhibit a consistent relationship with lake area. This suggests that short-term rainfall events alone were insufficient to explain annual fluctuations in lake extent and that seasonal temperature, together with annual water availability, exerted a stronger influence on lake development during the observation period.
+
+These results are consistent with the lake area changes described in Section 3.2, where the most pronounced expansion occurred between 2023 and 2024. During this interval, the lake increased by 5,360 m² and reached its maximum observed area of 30,526 m². The climatic conditions in 2024 likely enhanced glacier melt and increased water availability, while continued long-term glacier retreat created additional storage space within the moraine-dammed basin.
+
+Overall, the climatic analysis demonstrates that the evolution of Tosor Lake was controlled by the combined influence of several climatic and glaciological factors rather than by a single meteorological variable. Although annual PDD provides an effective indicator of the thermal conditions controlling glacier melt, the exceptionally large lake extent observed in 2024 appears to have resulted from the combined effects of continued glacier retreat, the highest August air temperature, abundant annual precipitation, and sustained meltwater supply accumulated over preceding years. These findings indicate that the response of glacier-fed lakes to climatic variability is cumulative and reflects the interaction between climate, glacier dynamics, and basin hydrology rather than an immediate response to annual meteorological conditions alone.
+
+\section{Surface Deformation Analysis Using DInSAR}
+
+Surface deformation within the Tosor Lake basin was evaluated using Sentinel-1 DInSAR observations acquired in August 2021 and August 2024. The resulting line-of-sight (LOS) displacement maps are presented in Figures 3.8 and 3.9. The analysis aimed to identify localized ground movements within the moraine complex and surrounding terrain that could indicate ongoing geomorphological activity.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{DinSar21.png}
+\caption{LOS surface displacement derived from Sentinel-1 DInSAR analysis for the 2021 interferometric pairs.}
+\label{fig:DinSAR}
+
+\end{figure}
+
+The LOS displacement map for 2021 (Figure 3.8) shows localized deformation within the moraine complex surrounding Tosor Lake, together with displacement over the glacier surface. Most of the surrounding bedrock exhibits relatively limited displacement, indicating generally stable terrain outside the glacier–moraine system.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{DinSar24.png}
+\caption{LOS surface displacement derived from Sentinel-1 DInSAR analysis for the 2024 interferometric pairs.}
+\label{fig:DinSAR24}
+
+\end{figure}
+
+The LOS displacement map for 2024 (Figure 3.9) shows a similar spatial distribution of deformation, with localized displacement occurring within the moraine complex and over the glacier. Compared with the 2021 interferograms, the deformation patterns appear more pronounced, although the maps also exhibit a higher level of spatial noise.
+
+Comparison of Figures 3.8 and 3.9 reveals that localized deformation occurred repeatedly within approximately the same parts of the moraine complex during both observation periods. Across the 2021 and 2024 interferometric pairs, the maximum detected LOS displacement reached up to approximately 5 cm within the moraine complex and up to approximately 10 cm over the glacier surface. The more pronounced deformation observed in 2024 coincides with the warmest August recorded during the study period. Although DInSAR observations alone cannot establish a direct causal relationship, warmer summer conditions may have contributed to enhanced glacier melt and increased geomorphological activity within the glacier–moraine system.
+
+The observed deformation within the moraine likely reflects gradual adjustment associated with buried ice degradation, local subsidence, water infiltration, or the movement of unconsolidated moraine material. In contrast, the larger displacement detected over the glacier is consistent with glacier motion and surface melting processes. However, DInSAR measures displacement only along the satellite line of sight and therefore does not represent the complete three-dimensional motion of the ground. Consequently, the detected displacement should be interpreted as an indicator of localized surface activity rather than a direct measurement of total ground movement \cite{Hanssen2001}.
+
+The use of multiple interferometric pairs allowed deformation patterns to be compared under different observation periods and coherence conditions. Although the magnitude and spatial distribution of displacement varied between individual interferograms, similar deformation zones were repeatedly detected within the moraine complex. This consistency increases confidence that the detected signals represent actual ground movement rather than being solely caused by atmospheric disturbances or interferometric processing artefacts. Nevertheless, variations in radar coherence, seasonal snow cover, steep topography, surface characteristics, and temporal separation between image acquisitions should be considered when interpreting DInSAR-derived displacement maps \cite{Hanssen2001}.
+
+Overall, the DInSAR analysis indicates that the moraine complex surrounding Tosor Lake remains geomorphologically active. The repeated occurrence of localized deformation suggests that gradual surface adjustment is ongoing, while the larger displacement observed over the glacier reflects active glacier dynamics. Although the detected deformation does not provide evidence of imminent moraine failure or an approaching glacial lake outburst, when interpreted together with the observed glacier retreat, lake development, and terrain evolution presented in the previous sections, these results indicate that the Tosor Lake system continues to evolve under the combined influence of climatic and geomorphological processes. Continued monitoring using satellite observations, UAV surveys, and periodic field investigations is therefore recommended to improve understanding of future moraine stability and glacier–lake evolution \cite{Zaginaev2016, Chen2024}.
+
+\section{Terrain Evolution and DEM Analysis}
+
+To investigate long-term topographic changes within the Tosor glacier-lake system, Digital Elevation Models (DEMs) derived from KH-9 Hexagon imagery (1973), ALOS AW3D30 data (2010), and UAV photogrammetry (2025) were compared.
+
+The location of the selected cross-sections is shown in Figure 3.10. Three representative profiles were established across the glacier-lake system to examine variations in surface elevation and terrain morphology between the different observation periods. The profiles cross the glacier forefield, moraine complex, and lake basin, allowing assessment of long-term changes within key geomorphological features of the study area.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{DEM_CS.png}
+\caption{Location of cross-sections used for DEM profile analysis within the Tosor glacier-lake system. Profiles were extracted from DEMs derived from KH-9 Hexagon imagery (1973), ALOS AW3D30 data (2010), and UAV photogrammetry (2025)}
+\label{fig:DEM}
+
+\end{figure}
+
+Elevation profiles extracted from the three DEMs are presented in Figure 3.11. Comparison of the profiles reveals noticeable differences in terrain configuration among the three observation periods. The most significant variations occur within the glacier forefield and moraine-dammed basin, indicating substantial landscape modification during the last five decades.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Difference.png}
+\caption{Comparison of elevation profiles derived from the 1973 KH-9 DEM (green line), 2010 ALOS AW3D30 DEM (blue line), and 2025 UAV DEM (red line) along selected cross-sections.}
+\label{fig:DEMgraf}
+
+\end{figure}
+
+The comparison of profiles indicates that the Tosor basin has experienced considerable topographic change since 1973. In all three cross-sections, differences are evident between the historical and contemporary DEMs, particularly within areas formerly occupied by glacier ice and adjacent moraine deposits. These variations reflect the cumulative effects of glacier retreat, surface lowering, moraine adjustment, and sediment redistribution within the glacier-lake environment.
+
+Cross-sections 1–1 and 2–2 reveal consistent differences among the three DEMs, suggesting progressive modification of the terrain through time. The profiles indicate that the morphology of the glacier forefield has changed substantially since the 1970s, reflecting long-term glacier recession and associated geomorphological processes.
+
+The most complex topographic pattern is observed along cross-section 3–3. In this profile, the elevation curves show a combination of localized increases and decreases along different segments of the transect. These variations likely reflect the interaction of multiple processes, including moraine evolution, redistribution of unconsolidated material, changes in drainage pathways, and continued adjustment of the glacier-lake basin following glacier retreat.
+
+The observed differences between the DEMs indicate that the Tosor glacier-lake system has undergone significant geomorphological transformation over the past five decades. As glacier ice retreated from the basin, previously ice-covered terrain became exposed \cite{Knight2014}, allowing the development of new landforms and modification of existing surface features. At the same time, the expansion of Tosor Lake contributed to changes in local hydrological and geomorphological conditions.
+
+It should be noted that the DEM datasets used in this study were derived from different sources and have substantially different spatial resolutions. The 1973 DEM was generated from KH-9 Hexagon imagery, the 2010 DEM was obtained from ALOS AW3D30 data with a spatial resolution of 30 m, and the 2025 DEM was produced from high-resolution UAV photogrammetry. Although all DEMs were co-registered prior to analysis, residual discrepancies may remain due to differences in spatial resolution, DEM generation methods, and vertical reference systems. Therefore, small elevation differences observed between datasets should be interpreted with caution, while the overall patterns of terrain evolution remain reliable.
+
+Despite these limitations, the elevation profiles consistently indicate substantial terrain modification throughout the study area. The observed changes correspond closely with the glacier retreat, lake expansion, and surface deformation patterns identified in previous sections. Together, these results provide strong evidence of ongoing geomorphological evolution within the Tosor glacier-lake system.
+
+Overall, the DEM analysis demonstrates that significant landscape changes have occurred between 1973 and 2025. The combined effects of glacier recession, terrain adjustment, moraine evolution, and lake development have transformed the morphology of the basin. These findings further confirm that the Tosor glacier-lake system remains a dynamic environment undergoing continuous change under contemporary climatic conditions.
+
+\section{Implications for Hazard Assessment, Monitoring, and Future Development}
+
+The results obtained in this study demonstrate that the Tosor glacier-lake system is undergoing continuous environmental change driven by glacier retreat, lake expansion, climatic variability, surface deformation, and terrain evolution. The combined influence of these processes indicates that the basin remains highly dynamic and requires continued monitoring to assess future development and potential hazard conditions.
+
+The analysis of historical and contemporary satellite imagery revealed substantial glacier retreat between 1973 and 2025. As the glacier receded, previously ice-covered terrain became exposed and contributed to the development and expansion of Tosor Lake. The observed increase in lake area, together with changes in meltwater drainage pathways, indicates that glacier retreat has become a major controlling factor in the evolution of the basin.
+
+The climatic analysis further demonstrated that lake development is closely related to variations in temperature, precipitation, snowfall, and Positive Degree Days (PDD). Years characterized by enhanced melt conditions generally corresponded to periods of increased lake area. These findings suggest that ongoing climatic warming may continue to influence glacier behavior and lake dynamics in the future.
+
+The DInSAR results revealed measurable surface deformation within the glacier and moraine complex surrounding the lake. Although deformation patterns varied between observation periods, displacement signals were repeatedly detected in both 2021 and 2024. The persistence of these signals indicates continued geomorphological activity within the moraine environment and suggests that the glacier-lake system remains responsive to glacier retreat and hydrological processes.
+
+The DEM analysis confirmed that significant terrain evolution has occurred during the last five decades. Comparison of DEMs derived from KH-9 Hexagon imagery, ALOS AW3D30 data, and UAV surveys revealed substantial modifications in basin morphology associated with glacier recession, moraine adjustment, and lake development. These long-term changes demonstrate the ongoing transformation of the landscape under contemporary climatic conditions.
+
+The integration of remote sensing observations, meteorological data, DInSAR analysis, and DEM-based terrain assessment highlights the importance of continuous monitoring \cite{Shugar2021} for glacier-fed lakes in high-mountain environments. The combination of optical satellite imagery, UAV surveys, SAR interferometry, and climate data provides an effective framework for detecting environmental change and assessing potential hazards in glacier-lake systems throughout the Kyrgyz Republic.
+
+To evaluate possible future development of the Tosor glacier-lake system, glacier evolution was simulated using the Open Global Glacier Model (OGGM) under SSP245 and SSP585 climate scenarios. The projected glacier evolution is presented in Figure 3.12.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{OGGM1.png}
+\caption{Projected changes in Tosor Glacier area under SSP245 and SSP585 climate scenarios from 2000 to 2050. (a) Projected glacier area (km$^2$). (b) Projected glacier area loss (percent)}
+\label{fig:OGGM}
+
+\end{figure}
+
+The model projections indicate continued glacier retreat under both climate scenarios \cite{Farinotti2019, rounce2023}. The glacier area decreases progressively throughout the simulation period, while glacier area loss accelerates after approximately 2025. Under SSP245, glacier loss reaches approximately 90 percent by 2050, whereas under SSP585 glacier loss approaches 95–97 percent of the initial glacier extent. The results suggest that glacier shrinkage is likely to continue throughout the coming decades regardless of the selected climate scenario, although the rate of retreat is greater under the higher-emission pathway.
+
+Continued glacier retreat is expected to influence the future evolution of Tosor Lake. During the period of accelerated glacier shrinkage, increased meltwater production may contribute to further lake development and enhanced hydrological activity within the basin. At the same time, ongoing degradation of glacier ice and moraine materials may increase geomorphological instability and influence future hazard conditions.
+
+A conceptual interpretation of possible future glacier-lake system evolution is presented in Figure 3.13.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{OGGM2.png}
+\caption{Conceptual future development of the Tosor glacier-lake system based on projected glacier retreat. (a) Relative conceptual lake response index derived from projected glacier area loss. (b) Conceptual timeline illustrating possible stages of glacier-lake system evolution.}
+\label{fig:OGGMresult}
+
+\end{figure}
+
+The conceptual lake response index suggests that the influence of glacier retreat on lake development may intensify during the coming decades as glacier shrinkage accelerates. Increased meltwater availability may contribute to continued lake growth and potentially higher water levels within the moraine-dammed basin. Consequently, the period between approximately 2030 and 2050 may represent a phase of increased sensitivity within the glacier-lake system.
+
+The conceptual timeline indicates three possible stages of future development. During the first stage, enhanced glacier melt may continue to increase water availability and support further lake development. During the second stage, rapid glacier shrinkage may lead to intensified geomorphological adjustment within the basin. In the longer term, as glacier storage becomes progressively depleted, future lake behavior may become increasingly dependent on precipitation, seasonal snow accumulation, and local hydrological conditions rather than direct glacier melt.
+
+Although the conceptual scenarios presented in Figure 3.13 are not predictive forecasts, they provide a useful framework for understanding potential future changes within the Tosor glacier-lake system and identifying periods during which monitoring efforts may be particularly important.
+
+Overall, the results indicate that Tosor Lake should remain a priority target for long-term environmental monitoring. Continued glacier retreat, ongoing lake development, measurable surface deformation, and projected future glacier loss demonstrate that the system remains highly dynamic. Regular monitoring using remote sensing, UAV surveys, meteorological observations, and surface deformation analysis can improve understanding of future environmental change and support hazard assessment efforts in the Teskey Ala-Too Range and other glacierized regions of the Kyrgyz Republic.
+
+\chapter{Conclusions}
+
+\section{Summary of Major Findings}
+
+This study investigated the evolution of the Tosor glacier-lake system through the integration of historical satellite imagery, contemporary remote sensing observations, UAV surveys, DInSAR analysis, DEM comparison, meteorological data, and glacier evolution modeling. The results provide a comprehensive understanding of the environmental changes that have occurred within the basin over the past five decades and highlight the interconnected nature of glacier, lake, climate, and terrain dynamics.
+
+The findings demonstrate that glacier retreat has been the primary driver of environmental change within the Tosor basin. The continuous recession of the glacier has altered the physical configuration of the landscape, modified meltwater drainage pathways, and created favorable conditions for the development and expansion of Tosor Lake. The transformation of the basin reflects the broader response of high-mountain glacier systems to ongoing climatic change.
+
+The study further shows that lake development is closely linked to both glacier recession and climatic variability. The observed expansion of Tosor Lake indicates that changes in meltwater production and hydrological conditions have played an important role in shaping the glacier-lake system. Climatic factors, including temperature, precipitation, snowfall, and melt intensity, influence the annual behavior of the lake and contribute to its continued evolution.
+
+The DInSAR analysis revealed that the glacier-moraine environment remains geomorphologically active. Recurrent deformation signals detected around the lake and moraine complex indicate that the basin is undergoing continuous adjustment in response to glacier retreat and hydrological processes. These observations emphasize that environmental change within the study area extends beyond glacier shrinkage alone and involves ongoing modification of the surrounding landscape.
+
+The DEM analysis confirmed that substantial terrain evolution has occurred throughout the study period. Long-term changes in surface morphology demonstrate that glacier retreat has been accompanied by landscape reorganization, moraine adjustment, and development of the glacier-lake environment. Together, these processes illustrate the progressive transformation of the Tosor basin from a glacier-dominated system toward an increasingly lake-dominated environment.
+
+Future glacier evolution modeling suggests that glacier shrinkage is likely to continue under projected climate conditions. Continued glacier loss may further influence hydrological processes, lake development, and geomorphological stability within the basin. Although the exact trajectory of future changes remains uncertain, the results indicate that environmental transformation within the Tosor glacier-lake system is likely to persist during the coming decades.
+
+Overall, this study demonstrates that the evolution of Tosor Lake is the result of complex interactions among glacier retreat, climatic conditions, hydrological processes, and geomorphological change. The findings highlight the value of integrating remote sensing, field observations, and numerical modeling to improve understanding of glacier-lake systems and provide scientific support for long-term environmental monitoring in high-mountain regions of the Kyrgyz Republic.
+
+\section{Research Contributions}
+
+This study contributes to the understanding of glacier-lake evolution in the high-mountain environments of the Kyrgyz Republic by providing a comprehensive assessment of the Tosor glacier-lake system using multi-source geospatial data and environmental observations.
+
+The first contribution of this research is the integration of historical and contemporary datasets spanning more than five decades. By combining KH-9 Hexagon imagery from 1973, Sentinel-2 satellite observations, UAV surveys, meteorological records, DInSAR analysis, and DEM data, the study provides a long-term perspective on environmental changes within the Tosor basin. Such multi-temporal assessments remain limited for many glacier-fed lakes in the Kyrgyz Republic.
+
+The second contribution is the detailed documentation of glacier retreat, lake development, and associated geomorphological changes within the Tosor glacier-lake system. The results demonstrate how glacier recession influences hydrological processes, terrain evolution, and lake expansion, providing new insights into the interactions between glaciers and high-mountain lakes in the Teskey Ala-Too Range.
+
+The third contribution is the application of an integrated monitoring framework that combines optical remote sensing, UAV photogrammetry, DInSAR surface deformation analysis, DEM comparison, and climatic observations. The study demonstrates the value of combining multiple observation techniques to investigate glacier-lake systems and assess environmental change in remote mountain regions.
+
+The fourth contribution is the assessment of future glacier evolution using the Open Global Glacier Model (OGGM). Although the future development of glacier-fed lakes remains uncertain, the modeling results provide a preliminary perspective on potential future changes within the Tosor basin and illustrate how continued glacier retreat may influence the evolution of the glacier-lake system.
+
+Finally, the study provides information that may support future monitoring and hazard assessment activities. The methodological approach and results can serve as a reference for the investigation of other glacier-fed lakes in the Kyrgyz Republic and contribute to the development of long-term monitoring strategies in high-mountain environments.
+
+\section{Limitations of the Study}
+
+Like any scientific investigation, this study is subject to several limitations that should be considered when interpreting the results.
+
+One limitation is related to the availability and characteristics of historical and contemporary datasets. The analysis relied on DEMs derived from different sources, including KH-9 Hexagon imagery, ALOS AW3D30 data, and UAV photogrammetry. These datasets differ in spatial resolution, acquisition methods, and vertical reference systems. Although co-registration procedures were applied, small discrepancies may remain and can influence local elevation comparisons.
+
+A second limitation concerns the temporal availability of satellite observations. While multi-temporal optical imagery provided valuable information on glacier and lake evolution, the frequency of observations was constrained by cloud cover and data availability. Similarly, the DInSAR analysis was based on a limited number of Sentinel-1 image pairs, which restricts the ability to evaluate long-term deformation trends.
+
+Another limitation is the absence of continuous field-based hydrological observations within the study area. Measurements such as lake level variations, discharge records, and detailed water balance data were not available for the entire observation period. Consequently, interpretations of lake dynamics rely primarily on remote sensing observations and meteorological datasets.
+
+Future glacier evolution was assessed using OGGM simulations under climate change scenarios. While the model provides useful insight into potential future glacier behavior, uncertainties associated with climate projections and model assumptions should be considered when interpreting future developments of the glacier-lake system.
+
+Despite these limitations, the integration of multiple remote sensing datasets, field observations, climatic records, and numerical modeling provides a robust framework for investigating environmental change within the Tosor glacier-lake system.
+
+\section{Recommendations for Future Monitoring and Hazard Management}
+
+Based on the findings of this study, several recommendations can be proposed to improve future monitoring and support hazard assessment activities within the Tosor glacier-lake system.
+
+The results demonstrate that the Tosor basin remains a dynamic environment characterized by ongoing glacier retreat, lake development, surface deformation, and terrain evolution. Continued monitoring of both Tosor Glacier and Tosor Lake is therefore strongly recommended to improve understanding of future environmental changes and to identify potentially significant developments at an early stage.
+
+One of the most effective approaches for long-term observation would be the installation of a time-lapse camera system in the vicinity of the glacier and lake. Continuous photographic monitoring would provide valuable information on seasonal glacier fluctuations, lake level changes, snow cover conditions, meltwater pathways, and ice-calving activity. Such observations would complement satellite-based monitoring and provide higher temporal resolution for documenting environmental change.
+
+Periodic UAV surveys are also recommended. High-resolution aerial imagery and photogrammetric DEMs can provide detailed information on glacier retreat, lake morphology, moraine conditions, and terrain evolution. Repeated UAV observations would improve the ability to detect small-scale geomorphological changes that may not be visible in medium-resolution satellite imagery.
+
+An additional recommendation is the implementation of periodic bathymetric surveys of Tosor Lake. Previous bathymetric measurements conducted in 2010 provided valuable information on lake depth and volume; however, no recent bathymetric data are currently available. Repeated bathymetric surveys would allow assessment of changes in lake depth, volume, and basin morphology over time, providing a more comprehensive understanding of lake evolution. Such information would also improve future hazard assessments and support more accurate evaluations of potential lake development under changing environmental conditions.
+
+Future monitoring efforts would also benefit from the installation of additional hydrological and meteorological observation systems. Measurements of lake level, stream discharge, air temperature, precipitation, and snow accumulation would improve understanding of the processes controlling glacier-lake interactions and reduce uncertainties in future assessments.
+
+The results further highlight the importance of maintaining regular hazard assessments within the Tosor basin. Although no evidence of imminent instability was identified during this study, the combination of glacier retreat, lake expansion, measurable surface deformation, and projected future glacier loss indicates that the glacier-lake system will remain sensitive to environmental change in the coming decades.
+
+Particular attention should be given to infrastructure located downstream within the Tosor River valley. A potential lake outburst could affect sections of the Bokonbaevo–Tosor road, bridges, power transmission lines, agricultural areas, the hydrological monitoring station, the Tosor irrigation canal intake, and other elements of local infrastructure. Consequently, continued monitoring and periodic reassessment of hazard conditions are recommended to support risk reduction and disaster preparedness efforts.
+
+Future research should focus on extending observation periods, increasing the frequency of UAV and satellite monitoring, and incorporating additional hydrological and climate datasets. Further development of glacier and lake evolution models would improve understanding of future environmental changes and support more comprehensive hazard assessment studies.
+
+Overall, the integration of remote sensing observations, field investigations, meteorological analysis, and numerical modeling provides a valuable framework for monitoring glacier-fed lakes in the Kyrgyz Republic. Continued application of these approaches will contribute to improved understanding of glacier-lake dynamics and support sustainable management of high-mountain environments under changing climatic conditions.
+
+\printbibliography[
+    heading=bibintoc,
+    title={Bibliography},
+    resetnumbers=true
+]
+
+
+\appendix
+\refstepcounter{chapter}
+
+\chapter*{%
+Appendix \thechapter\\[1ex]
+UAV Photographic Documentation of the Tosor Lake Basin}
+
+\addcontentsline{toc}{chapter}
+{Appendix \thechapter. UAV Photographic Documentation of the Tosor Lake Basin}
+  
+
+This appendix presents UAV photographs acquired during the field survey conducted at Tosor Lake on 1 August 2025. The photographs provide visual documentation of the study area, including the glacier front, moraine complex, lake, outlet channel, and downstream valley. These images complement the analyses presented in the main body of the thesis and illustrate the geomorphological characteristics and field conditions observed during the survey.
+
+\clearpage
+\section{Overview of the Tosor Lake Basin}
+
+
+\vspace{1mm}
+
+%\centering
+\setlength{\tabcolsep}{0.01mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/65.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/69.jpg}
+\\[0.01mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/71.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/72.jpg}
+\\[0.01mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/73.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.1 General Views/76.jpg}
+
+\caption{Overview of the Tosor Lake Basin}
+    \label{fig:A1}
+\end{figure}
+
+\clearpage
+\section{Photographs of the Glacier Front}
+
+\vspace{10mm}
+
+\begin{center}
+\setlength{\tabcolsep}{2mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/21.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/25.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/27.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/32.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/34.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/36.jpg}
+
+\caption{Photographs of the Glacier Front}
+    \label{fig:A2}
+\end{figure}
+\end{center}
+
+\begin{figure}[p]
+    \ContinuedFloat
+    \centering
+    \setlength{\tabcolsep}{2mm}
+    \renewcommand{\arraystretch}{0}
+
+    \begin{tabular}{cc}
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/37.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/38.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/42.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/85.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/86.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.2 Glacier Front/92.jpg}
+\end{tabular}
+\caption{Photographs of the Glacier Front (continued)}
+   
+\end{figure}
+%\end{center}
+
+\clearpage
+\section{Photographs of Tosor Lake}
+\vspace{10mm}
+
+\begin{center}
+\setlength{\tabcolsep}{2mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/44.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/2.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/5.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/8.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/9.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/13.jpg}
+
+\caption{Photographs of Tosor Lake}
+    \label{fig:A3}
+\end{figure}
+\end{center}
+
+\begin{figure}[p]
+    \ContinuedFloat
+    \centering
+    \setlength{\tabcolsep}{2mm}
+    \renewcommand{\arraystretch}{0}
+
+    \begin{tabular}{cc}
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/14.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/17.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/18.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/22.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/45.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.3 Tosor Lake/24.jpg}
+\end{tabular}
+\caption{Photographs of Tosor Lake (continued)}
+    \label{fig:A3}
+\end{figure}
+
+
+\clearpage
+\section{Photographs of the Moraine Complex}
+\vspace{10mm}
+
+\begin{center}
+\setlength{\tabcolsep}{2mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/74.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/12.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/15.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/29.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/3.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/16.jpg}
+
+\caption{Photographs of the Moraine Complex}
+    \label{fig:A4}
+\end{figure}
+\end{center}
+
+\begin{figure}[p]
+    \ContinuedFloat
+    \centering
+    \setlength{\tabcolsep}{2mm}
+    \renewcommand{\arraystretch}{0}
+
+    \begin{tabular}{cc}
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/4.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/40.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/47.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/6.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/79.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/7.jpg}
+\end{tabular}
+\caption{Photographs of the Moraine Complex (continued)}
+    \label{fig:A4}
+\end{figure}
+
+
+\begin{figure}[p]
+    \ContinuedFloat
+    \centering
+    \setlength{\tabcolsep}{2mm}
+    \renewcommand{\arraystretch}{0}
+
+    \begin{tabular}{cc}
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/41.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/80.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/46.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/48.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/49.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.4 Moraine Complex/83.jpg}
+\end{tabular}
+\caption{Photographs of the Moraine Complex (continued)}
+    \label{fig:A4}
+\end{figure}
+
+
+
+\clearpage
+\section{Photographs of the Lake Outlet Channel}
+\vspace{10mm}
+
+\begin{center}
+\setlength{\tabcolsep}{2mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/55.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/56.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/57.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/59.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/61.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/63.jpg}
+
+\caption{Photographs of the Lake Outlet Channel}
+    \label{fig:A5}
+\end{figure}
+\end{center}
+\begin{figure}[p]
+    \ContinuedFloat
+    \centering
+    \setlength{\tabcolsep}{2mm}
+    \renewcommand{\arraystretch}{0}
+
+    \begin{tabular}{cc}
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/66.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/68.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/77.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/78.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/81.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.5 Outlet Channel/82.jpg}
+\end{tabular}
+\caption{Photographs of the Lake Outlet Channel (continued)}
+    \label{fig:A5}
+\end{figure}
+
+
+
+\clearpage
+\section{Photographs of the Downstream Valley}
+\vspace{10mm}
+
+\begin{center}
+\setlength{\tabcolsep}{2mm}
+\renewcommand{\arraystretch}{0}
+
+\begin{figure}[!ht]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/50.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/51.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/93.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/91.jpg}
+\\[2mm]
+
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/87.jpg}
+&
+\includegraphics[height=0.25\textheight,keepaspectratio]{A.6 Downstream Valley/53.jpg}
+
+\caption{Photographs of the Downstream Valley}
+    \label{fig:A6}
+\end{figure}
+
+\end{center}
+
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+All praise and gratitude are due to Allah, the Lord of all worlds. I ask for His mercy, guidance, and countless blessings throughout my life. To Him belongs all power and authority. Indeed, we belong to Allah, and to Him we shall return.
+
+I would like to express my deepest and most sincere gratitude to my supervisor, Associate Professor Kenlo Nasahara, for his invaluable guidance, support, patience, and continuous assistance throughout this research. His advice, trust, and constructive comments helped me overcome many challenges and guided me in the right direction at every stage of this study.
+
+I would also like to express my sincere gratitude to all my teachers who have contributed to my academic development. In particular, I would like to thank Professor Kenichi Matsui and Professor Tomoyuki Yokoi for their valuable knowledge.
+
+I am also sincerely grateful to the members of my laboratory for their constant support, friendship, assistance, and the warm atmosphere they created throughout my time at the University of Tsukuba.
+
+I would like to express my sincere appreciation to the staff of the Department of Monitoring and Forecasting of Emergency Situations of the Kyrgyz Republic for their cooperation and support during this research. In particular, I would like to thank Director Daurbek Sakiev, Madina Amanova, and all my colleagues for their assistance, encouragement, and collaboration.
+
+Special thanks are extended to the Japan International Cooperation Center (JICE) for providing me with the opportunity to receive an education and gain invaluable experience at one of the leading universities not only in Japan but also in the world. I am especially grateful to Umebayashi-san, Aida Abzhaparova, and Alina for their continuous support, kindness, and assistance throughout my studies in Japan.
+
+My heartfelt gratitude goes to my parents for their love, care, sacrifices, and unwavering support. They always encouraged me to pursue knowledge and did everything possible to ensure that I received a good education and could achieve my goals. Everything I have accomplished today would not have been possible without their efforts, prayers, and belief in me.
+
+Finally, I would like to thank everyone who contributed to this research directly or indirectly. Your support, encouragement, and assistance are deeply appreciated.
+
+\end{document}
